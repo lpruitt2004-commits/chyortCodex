@@ -109,6 +109,31 @@ Build a to-do list app with full CRUD functionality and data persistence.
 
 ---
 
+## 📁 Practice Files
+
+All exercises are in the `exercises/` folder.
+
+**Daily Exercises:**
+- `day1.html` & `day1.js` - JavaScript fundamentals (variables, loops, functions)
+- `day3.html` & `day3.js` - DOM manipulation practice
+
+**How to work:**
+1. Open the HTML file in your browser
+2. Open browser console (F12) to see output
+3. Write your code in the .js file
+4. Refresh browser to test
+5. Get AI code review when done:
+   ```bash
+   ./review_code.sh exercises/day1.js
+   ```
+
+**Alternative review:**
+```bash
+python3 ../../ollama_duo.py --file exercises/day1.js --optimize --optimize-json
+```
+
+---
+
 ## Skills Checklist
 - [ ] Variables and data types
 - [ ] Functions and scope

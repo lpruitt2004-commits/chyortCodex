@@ -123,6 +123,31 @@ Build a professional portfolio landing page with sections for:
 
 ---
 
+## 📁 Practice Files
+
+All exercises are in the `exercises/` folder. Solutions in `solutions/`.
+
+**Daily Exercises:**
+- `day1.html` & `day1.css` - HTML resume page
+- `day3.html` & `day3.css` - Flexbox navbar and cards
+- `day4.html` & `day4.css` - CSS Grid photo gallery
+
+**How to work:**
+1. Open the HTML file in your browser
+2. Write your code in VS Code
+3. Refresh browser to see changes
+4. When done, get AI code review:
+   ```bash
+   ./review_code.sh exercises/day1.html
+   ```
+
+**Alternative review:**
+```bash
+python3 ../../ollama_duo.py --file exercises/day1.html --optimize --optimize-json
+```
+
+---
+
 ## Skills Checklist
 - [ ] HTML5 semantic elements
 - [ ] CSS selectors and specificity

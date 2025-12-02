@@ -1,0 +1,17 @@
+/* 
+INSTRUCTIONS:
+Style your resume from day1.html
+
+Requirements:
+1. Set a max-width for the body (800px)
+2. Center the content
+3. Add padding and margins
+4. Style headings with different font sizes
+5. Add a border or background color to sections
+6. Make links a different color
+
+When done, ask ollama_duo to review:
+python3 ../../../ollama_duo.py --file day1.css --optimize --optimize-json
+*/
+
+/* START YOUR CODE BELOW */

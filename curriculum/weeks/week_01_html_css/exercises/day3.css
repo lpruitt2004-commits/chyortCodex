@@ -1,0 +1,45 @@
+/* 
+INSTRUCTIONS:
+Use Flexbox to layout the navbar and cards
+
+Requirements:
+1. Navbar should be horizontal, space-between
+2. Cards container should use flex-wrap
+3. Each card should be 300px wide
+4. Add gap between cards
+5. Center items in navbar
+6. Add hover effects
+
+Code review:
+python3 ../../../ollama_duo.py --file day3.css --optimize --optimize-json
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Style the navbar with Flexbox */
+.navbar {
+    /* Your Flexbox code here */
+}
+
+/* Style the cards container with Flexbox */
+.cards-container {
+    /* Your Flexbox code here */
+}
+
+/* Style individual cards */
+.card {
+    /* Your styles here */
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
