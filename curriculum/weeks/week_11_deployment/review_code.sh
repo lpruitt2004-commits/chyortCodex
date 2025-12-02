@@ -21,15 +21,26 @@ else
     fi
   done
   
-  # Validate docker-compose files
-  echo "Checking docker-compose files..."
-  for dc in $(find . -name "docker-compose*.yml" -path "*/solutions/*"); do
-    if docker-compose -f "$dc" config > /dev/null 2>&1; then
-      echo "  ✅ $dc"
-    else
-      echo "  ❌ $dc - invalid syntax"
-    fi
-  done
+  # Validate compose files (support both 'docker compose' and 'docker-compose')
+  echo "Checking compose files..."
+  COMPOSE_CMD=""
+  if docker compose version >/dev/null 2>&1; then
+    COMPOSE_CMD="docker compose"
+  elif command -v docker-compose >/dev/null 2>&1; then
+    COMPOSE_CMD="docker-compose"
+  else
+    echo "  ⚠️  Neither 'docker compose' nor 'docker-compose' found - skipping compose validation"
+  fi
+
+  if [ -n "$COMPOSE_CMD" ]; then
+    for dc in $(find . -name "docker-compose*.yml" -path "*/solutions/*"); do
+      if $COMPOSE_CMD -f "$dc" config > /dev/null 2>&1; then
+        echo "  ✅ $dc"
+      else
+        echo "  ❌ $dc - invalid syntax"
+      fi
+    done
+  fi
 fi
 
 # Check for required files
