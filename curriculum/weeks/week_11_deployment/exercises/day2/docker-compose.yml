@@ -1,0 +1,27 @@
+# TODO: Create docker-compose.yml
+# Services needed:
+# 1. app:
+#    - build: current directory
+#    - ports: 3000:3000
+#    - environment: DATABASE_URL
+#    - depends_on: db
+#
+# 2. db:
+#    - image: postgres:16-alpine
+#    - environment: POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB
+#    - volumes: postgres-data
+#    - healthcheck
+#
+# Networks: app-network
+# Volumes: postgres-data
+
+version: '3.8'
+
+services:
+  # Define services here
+
+volumes:
+  # Define volumes here
+
+networks:
+  # Define networks here
