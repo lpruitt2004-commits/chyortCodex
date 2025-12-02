@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 Day 5 - localStorage - SOLUTION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            margin-right: 10px;
+            width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button.danger {
+            background-color: #e74c3c;
+        }
+        button.danger:hover {
+            background-color: #c0392b;
+        }
+        #output, #userOutput, #todoOutput {
+            margin-top: 15px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+            min-height: 20px;
+            font-weight: bold;
+        }
+        .empty {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #ecf0f1;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>localStorage Practice - SOLUTION</h1>
+    
+    <div class="section">
+        <h2>1. Save & Load Simple Text</h2>
+        <input type="text" id="saveInput" placeholder="Enter text to save">
+        <button id="saveBtn">Save</button>
+        <button id="loadBtn">Load</button>
+        <button id="clearBtn" class="danger">Clear</button>
+        <div id="output" class="empty">Nothing loaded yet...</div>
+    </div>
+
+    <div class="section">
+        <h2>2. Save & Load Objects (JSON)</h2>
+        <input type="text" id="userName" placeholder="Name">
+        <input type="number" id="userAge" placeholder="Age">
+        <button id="saveUserBtn">Save User</button>
+        <button id="loadUserBtn">Load User</button>
+        <div id="userOutput" class="empty">No user data yet...</div>
+    </div>
+
+    <div class="section">
+        <h2>3. Todo List (Array of Objects)</h2>
+        <input type="text" id="todoInput" placeholder="Enter a todo">
+        <button id="addTodoBtn">Add Todo</button>
+        <button id="clearTodosBtn" class="danger">Clear All</button>
+        <div id="todoOutput"></div>
+    </div>
+
+    <script src="day5.js"></script>
+</body>
+</html>

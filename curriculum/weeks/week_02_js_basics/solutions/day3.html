@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3: DOM Manipulation - SOLUTION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+            padding: 5px;
+        }
+        .active {
+            color: green;
+            font-weight: bold;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main-heading">Original Heading</h1>
+    
+    <ul id="my-list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <div class="box"></div>
+
+    <p id="text">This text can be highlighted</p>
+
+    <div>
+        <button id="btn-heading">Change Heading</button>
+        <button id="btn-add">Add List Item</button>
+        <button id="btn-remove">Remove First Item</button>
+        <button id="btn-style">Change Box Style</button>
+        <button id="btn-toggle">Toggle Highlight</button>
+        <button id="btn-highlight">Highlight All Items</button>
+    </div>
+
+    <script src="day3.js"></script>
+</body>
+</html>
