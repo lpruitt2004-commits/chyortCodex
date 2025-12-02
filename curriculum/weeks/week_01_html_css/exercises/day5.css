@@ -1,0 +1,103 @@
+/* Week 1 Day 5: Responsive Design Practice
+ * 
+ * INSTRUCTIONS:
+ * Make this layout responsive using mobile-first approach
+ * Use media queries for tablet (768px) and desktop (1024px)
+ * 
+ * TODO:
+ * 1. Start with mobile styles (320px base)
+ * 2. Add tablet breakpoint @768px
+ * 3. Add desktop breakpoint @1024px
+ * 4. Make navbar stack on mobile, inline on desktop
+ * 5. Make cards stack on mobile, 2-col on tablet, 3-col on desktop
+ */
+
+/* CSS Variables */
+:root {
+    --primary-color: #3498db;
+    --text-color: #333;
+    --bg-color: #f5f5f5;
+    /* ADD MORE VARIABLES */
+}
+
+/* Mobile-first base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* TODO: Style navbar for mobile (stacked) */
+.navbar {
+    /* YOUR CODE HERE */
+}
+
+.nav-links {
+    /* Stack vertically on mobile */
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style hero section */
+.hero {
+    /* Full width, centered text, padding */
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style cards for mobile (1 column) */
+.cards {
+    /* YOUR CODE HERE */
+}
+
+.card {
+    /* Margin, padding, background */
+    /* YOUR CODE HERE */
+}
+
+/* ========== TABLET: 768px and up ========== */
+@media (min-width: 768px) {
+    /* TODO: Navbar side-by-side */
+    .navbar {
+        /* YOUR CODE HERE */
+    }
+    
+    .nav-links {
+        /* Horizontal layout */
+        /* YOUR CODE HERE */
+    }
+    
+    /* TODO: Cards in 2 columns */
+    .cards {
+        /* Use flexbox or grid for 2 columns */
+        /* YOUR CODE HERE */
+    }
+}
+
+/* ========== DESKTOP: 1024px and up ========== */
+@media (min-width: 1024px) {
+    /* TODO: Navbar with max-width */
+    .navbar {
+        /* YOUR CODE HERE */
+    }
+    
+    /* TODO: Cards in 3 columns */
+    .cards {
+        /* 3 column grid */
+        /* YOUR CODE HERE */
+    }
+    
+    /* TODO: Hero larger text */
+    .hero h1 {
+        /* YOUR CODE HERE */
+    }
+}
+
+/* BONUS: Dark mode media query */
+@media (prefers-color-scheme: dark) {
+    /* YOUR CODE HERE */
+}

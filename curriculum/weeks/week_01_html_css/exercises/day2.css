@@ -1,0 +1,116 @@
+/* Week 1 Day 2: CSS Box Model Practice
+ * 
+ * INSTRUCTIONS:
+ * Style the resume using box model properties
+ * Focus on: margin, padding, border, width
+ * 
+ * TODO List:
+ * 1. Set body margin and padding
+ * 2. Style the resume container with padding and border
+ * 3. Add spacing between sections
+ * 4. Style the contact info with proper spacing
+ * 5. Create visual hierarchy with margins
+ */
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* TODO: Style body with padding and background color */
+body {
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style the resume container */
+.resume {
+    /* Add max-width, margin auto for centering, padding, background, border */
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style the resume header */
+.resume-header {
+    /* Add padding, margin-bottom, border-bottom */
+    /* YOUR CODE HERE */
+}
+
+.resume-header h2 {
+    /* YOUR CODE HERE */
+}
+
+.tagline {
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style contact info */
+.contact-info {
+    /* Add padding, margin, background color */
+    /* YOUR CODE HERE */
+}
+
+.contact-info p {
+    /* Add margin between contact items */
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style sections */
+section {
+    /* Add margin-bottom for spacing */
+    /* YOUR CODE HERE */
+}
+
+section h3 {
+    /* Add border-bottom, padding-bottom, margin-bottom */
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style job entries */
+.job {
+    /* Add margin-bottom, padding-left */
+    /* YOUR CODE HERE */
+}
+
+.job h4 {
+    /* YOUR CODE HERE */
+}
+
+.company, .dates {
+    /* Add font styles and spacing */
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style lists */
+ul {
+    /* Add margin-left, padding */
+    /* YOUR CODE HERE */
+}
+
+li {
+    /* Add margin-bottom */
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style skills list to display inline */
+.skills-list {
+    /* Remove list-style, display as flex or inline */
+    /* YOUR CODE HERE */
+}
+
+.skills-list li {
+    /* Add padding, margin, border, background */
+    /* Make them look like tags/pills */
+    /* YOUR CODE HERE */
+}
+
+/* TODO: Style footer */
+footer {
+    /* Add margin-top, padding, text-align, border-top */
+    /* YOUR CODE HERE */
+}
+
+/* BONUS: Add hover effects to job entries */
+.job:hover {
+    /* YOUR CODE HERE */
+}
