@@ -31,12 +31,17 @@ Return JSON only:
   python ollama_duo.py -p "Design a REST API" --json
 
 Install requirement: Ollama must be installed (`ollama`) and models pulled.
+
+New Feature:
+    --progress  Show live streaming token count & elapsed time for each model.
+                            (True percentage is not available; token count is approximate.)
 """
 
 import argparse
 import json
 import subprocess
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -54,20 +59,70 @@ def read_file_for_analysis(path: str) -> str:
     return data
 
 
-def run_model(model: str, prompt: str, temperature: float) -> str:
-    """Run an Ollama model with a single prompt and return its output text."""
+def run_model(model: str, prompt: str, temperature: float, progress: bool = False, role: str = "model") -> str:
+    """Run an Ollama model with a single prompt and return its output text.
+
+    If progress=True, stream tokens and emit a simple live indicator with:
+      token count, elapsed time, and spinner.
+    Percentage completion is not available (unknown total), so we show a running tally.
+    """
     full_prompt = f"<temp={temperature}>\n{prompt}" if temperature is not None else prompt
+
+    if not progress:
+        try:
+            result = subprocess.run(
+                ["ollama", "run", model, full_prompt],
+                capture_output=True,
+                text=True,
+                check=True,
+            )
+        except subprocess.CalledProcessError as e:
+            sys.stderr.write(f"[error] Model '{model}' failed: {e.stderr}\n")
+            sys.exit(1)
+        return result.stdout.strip()
+
+    # Streaming path
+    start = time.time()
+    spinner = ['|', '/', '-', '\\']
+    spin_idx = 0
+    token_count = 0
+    collected = []
     try:
-        result = subprocess.run(
+        proc = subprocess.Popen(
             ["ollama", "run", model, full_prompt],
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
-            check=True,
+            bufsize=1,
         )
-    except subprocess.CalledProcessError as e:
-        sys.stderr.write(f"[error] Model '{model}' failed: {e.stderr}\n")
+    except Exception as e:
+        sys.stderr.write(f"[error] Failed to start model '{model}' streaming: {e}\nFalling back to blocking mode.\n")
+        return run_model(model, prompt, temperature, progress=False)
+
+    # Read stdout line-by-line (each line may contain partial tokens)
+    for line in proc.stdout:
+        if not line:
+            continue
+        collected.append(line)
+        # Rough token approximation: split on whitespace
+        token_count += len(line.strip().split()) if line.strip() else 0
+        spin_idx = (spin_idx + 1) % len(spinner)
+        elapsed = time.time() - start
+        # Write progress to stderr (so stdout remains pure model output if captured externally)
+        sys.stderr.write(
+            f"\r[{spinner[spin_idx]}] {role}:{model} tokens={token_count} elapsed={elapsed:0.1f}s"
+        )
+        sys.stderr.flush()
+
+    # Wait for completion & capture any stderr
+    proc.wait()
+    sys.stderr.write("\r" + " " * 80 + "\r")  # Clear progress line
+    if proc.returncode != 0:
+        error_out = proc.stderr.read() if proc.stderr else "(no stderr)"
+        sys.stderr.write(f"[error] Model '{model}' failed: {error_out}\n")
         sys.exit(1)
-    return result.stdout.strip()
+
+    return ''.join(collected).strip()
 
 
 def build_reviewer_prompt(original_prompt: str, coder_output: str) -> str:
@@ -90,11 +145,14 @@ def main():
     parser.add_argument("--no-review", action="store_true", help="Skip second model.")
     parser.add_argument("--coder-temp", type=float, default=0.4, help="Temperature for coder model.")
     parser.add_argument("--reviewer-temp", type=float, default=0.3, help="Temperature for reviewer model.")
+    parser.add_argument("--progress", action="store_true", help="Show live streaming token count & elapsed time.")
     parser.add_argument("--json", action="store_true", help="Output result as JSON.")
     parser.add_argument("--show-draft", action="store_true", help="Include coder draft in plain output.")
     args = parser.parse_args()
 
-    start_time = datetime.utcnow().isoformat() + "Z"
+    # Use timezone-aware UTC timestamp to avoid deprecation warnings
+    from datetime import timezone
+    start_time = datetime.now(timezone.utc).isoformat()
 
     if not args.prompt and not args.file:
         sys.stderr.write("[error] Must provide --prompt or --file.\n")
@@ -118,7 +176,7 @@ def main():
                 "Return STRICT JSON only, no prose outside JSON. Do not add code fences.\n"
                 f"\nFile Path: {args.file}\n---BEGIN FILE CONTENT---\n{file_content}\n---END FILE CONTENT---\n"
             )
-            coder_output = run_model(args.coder, optimization_prompt, args.coder_temp)
+            coder_output = run_model(args.coder, optimization_prompt, args.coder_temp, progress=args.progress, role="coder")
             # Attempt to parse JSON from coder_output; if fails keep raw
             try:
                 optimization_payload = json.loads(coder_output)
@@ -132,7 +190,7 @@ def main():
                     "Return corrected JSON only.\n"
                     f"\nOriginal JSON:\n{coder_output}\n"
                 )
-                reviewer_text = run_model(args.reviewer, reviewer_prompt, args.reviewer_temp)
+                reviewer_text = run_model(args.reviewer, reviewer_prompt, args.reviewer_temp, progress=args.progress, role="reviewer")
                 try:
                     reviewer_output = json.loads(reviewer_text)
                 except json.JSONDecodeError:
@@ -160,11 +218,11 @@ def main():
                 f"Analyze and respond to user prompt regarding this file. File path: {args.file}.\n"
                 f"---BEGIN FILE CONTENT---\n{file_content}\n---END FILE CONTENT---\n\nUser prompt (if supplied): {args.prompt or '(none)'}"
             )
-            coder_output = run_model(args.coder, effective_prompt, args.coder_temp)
+            coder_output = run_model(args.coder, effective_prompt, args.coder_temp, progress=args.progress, role="coder")
             reviewer_output = None
             if not args.no_review:
                 reviewer_prompt = build_reviewer_prompt(effective_prompt, coder_output)
-                reviewer_output = run_model(args.reviewer, reviewer_prompt, args.reviewer_temp)
+                reviewer_output = run_model(args.reviewer, reviewer_prompt, args.reviewer_temp, progress=args.progress, role="reviewer")
             if args.json:
                 payload = {
                     "timestamp": start_time,
@@ -185,12 +243,12 @@ def main():
                 print(coder_output)
             return
     # Original non-file, non-optimize path
-    coder_output = run_model(args.coder, args.prompt, args.coder_temp)
+    coder_output = run_model(args.coder, args.prompt, args.coder_temp, progress=args.progress, role="coder")
 
     reviewer_output = None
     if not args.no_review:
         reviewer_prompt = build_reviewer_prompt(args.prompt, coder_output)
-        reviewer_output = run_model(args.reviewer, reviewer_prompt, args.reviewer_temp)
+        reviewer_output = run_model(args.reviewer, reviewer_prompt, args.reviewer_temp, progress=args.progress, role="reviewer")
 
     if args.json:
         payload = {

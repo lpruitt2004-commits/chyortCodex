@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5: Context & Advanced Patterns</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .dark {
+            background: #222;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useContext, createContext } = React;
+
+        // TODO: Exercise 1 - Create ThemeContext
+        // const ThemeContext = createContext();
+
+        // TODO: Exercise 2 - Create ThemeProvider component
+        // function ThemeProvider({ children }) {
+        //   // Provide theme state and toggle function
+        //   return (/* JSX here */)
+        // }
+
+        // TODO: Exercise 3 - Create ThemedButton component
+        // function ThemedButton() {
+        //   // Use useContext to get theme
+        //   return (/* JSX here */)
+        // }
+
+        // TODO: Exercise 4 - Create UserContext for authentication
+        // const UserContext = createContext();
+
+        function App() {
+            return (
+                <div>
+                    <h1>Day 5: Context & Advanced Patterns</h1>
+                    
+                    {/* TODO: Wrap app in ThemeProvider */}
+                    
+                    {/* TODO: Use ThemedButton component */}
+                    
+                    {/* TODO: Implement UserContext pattern */}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

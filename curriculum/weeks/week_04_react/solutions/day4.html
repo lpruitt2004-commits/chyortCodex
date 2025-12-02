@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: Forms & Validation - SOLUTION</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+        }
+        input {
+            padding: 8px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .success {
+            color: green;
+            padding: 10px;
+            background: #d4edda;
+            border-radius: 4px;
+        }
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f5f5f5;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // Exercise 1: LoginForm component
+        function LoginForm() {
+            const [email, setEmail] = useState('');
+            const [password, setPassword] = useState('');
+            const [error, setError] = useState('');
+            const [success, setSuccess] = useState(false);
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                setError('');
+                
+                if (!email.includes('@')) {
+                    setError('Invalid email address');
+                    return;
+                }
+                if (password.length < 6) {
+                    setError('Password must be at least 6 characters');
+                    return;
+                }
+                
+                setSuccess(true);
+                setTimeout(() => setSuccess(false), 3000);
+            };
+
+            return (
+                <div>
+                    <h3>Login Form</h3>
+                    <form onSubmit={handleSubmit}>
+                        <input 
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Email"
+                        />
+                        <input 
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Password"
+                        />
+                        {error && <div className="error">{error}</div>}
+                        {success && <div className="success">Login successful!</div>}
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+            );
+        }
+
+        // Exercise 2: RegistrationForm component
+        function RegistrationForm() {
+            const [formData, setFormData] = useState({
+                username: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+            });
+            const [errors, setErrors] = useState({});
+
+            const handleChange = (e) => {
+                setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value
+                });
+            };
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                const newErrors = {};
+                
+                if (formData.username.length < 3) {
+                    newErrors.username = 'Username must be at least 3 characters';
+                }
+                if (!formData.email.includes('@')) {
+                    newErrors.email = 'Invalid email';
+                }
+                if (formData.password.length < 6) {
+                    newErrors.password = 'Password must be at least 6 characters';
+                }
+                if (formData.password !== formData.confirmPassword) {
+                    newErrors.confirmPassword = 'Passwords do not match';
+                }
+                
+                setErrors(newErrors);
+                if (Object.keys(newErrors).length === 0) {
+                    alert('Registration successful!');
+                }
+            };
+
+            return (
+                <div>
+                    <h3>Registration Form</h3>
+                    <form onSubmit={handleSubmit}>
+                        <input 
+                            name="username"
+                            value={formData.username}
+                            onChange={handleChange}
+                            placeholder="Username"
+                        />
+                        {errors.username && <div className="error">{errors.username}</div>}
+                        
+                        <input 
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Email"
+                        />
+                        {errors.email && <div className="error">{errors.email}</div>}
+                        
+                        <input 
+                            name="password"
+                            type="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            placeholder="Password"
+                        />
+                        {errors.password && <div className="error">{errors.password}</div>}
+                        
+                        <input 
+                            name="confirmPassword"
+                            type="password"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            placeholder="Confirm Password"
+                        />
+                        {errors.confirmPassword && <div className="error">{errors.confirmPassword}</div>}
+                        
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+            );
+        }
+
+        // Exercise 3: TodoForm component
+        function TodoForm() {
+            const [todos, setTodos] = useState([]);
+            const [inputValue, setInputValue] = useState('');
+
+            const addTodo = (e) => {
+                e.preventDefault();
+                if (inputValue.trim()) {
+                    setTodos([...todos, { id: Date.now(), text: inputValue }]);
+                    setInputValue('');
+                }
+            };
+
+            const deleteTodo = (id) => {
+                setTodos(todos.filter(todo => todo.id !== id));
+            };
+
+            return (
+                <div>
+                    <h3>Todo List</h3>
+                    <form onSubmit={addTodo}>
+                        <input 
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
+                            placeholder="Add a todo..."
+                        />
+                        <button type="submit">Add</button>
+                    </form>
+                    <div>
+                        {todos.map(todo => (
+                            <div key={todo.id} className="todo-item">
+                                <span>{todo.text}</span>
+                                <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <h1>Day 4: Forms & Validation Solutions</h1>
+                    
+                    <LoginForm />
+                    <hr />
+                    <RegistrationForm />
+                    <hr />
+                    <TodoForm />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: State & Events - SOLUTION</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+        .counter {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .toggle-on {
+            background: green;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .toggle-off {
+            background: gray;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // Exercise 1: Counter component
+        function Counter() {
+            const [count, setCount] = useState(0);
+
+            return (
+                <div>
+                    <h3>Counter</h3>
+                    <div className="counter">{count}</div>
+                    <button onClick={() => setCount(count + 1)}>Increment</button>
+                    <button onClick={() => setCount(count - 1)}>Decrement</button>
+                    <button onClick={() => setCount(0)}>Reset</button>
+                </div>
+            );
+        }
+
+        // Exercise 2: ToggleSwitch component
+        function ToggleSwitch() {
+            const [isOn, setIsOn] = useState(false);
+
+            return (
+                <div>
+                    <h3>Toggle Switch</h3>
+                    <div className={isOn ? 'toggle-on' : 'toggle-off'}>
+                        {isOn ? 'ON' : 'OFF'}
+                    </div>
+                    <button onClick={() => setIsOn(!isOn)}>Toggle</button>
+                </div>
+            );
+        }
+
+        // Exercise 3: TextMirror component
+        function TextMirror() {
+            const [text, setText] = useState('');
+
+            return (
+                <div>
+                    <h3>Text Mirror</h3>
+                    <input 
+                        type="text" 
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        placeholder="Type something..."
+                    />
+                    <p>You typed: <strong>{text}</strong></p>
+                    <button onClick={() => setText('')}>Clear</button>
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <h1>Day 2: State & Events Solutions</h1>
+                    
+                    <Counter />
+                    <hr />
+                    <ToggleSwitch />
+                    <hr />
+                    <TextMirror />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

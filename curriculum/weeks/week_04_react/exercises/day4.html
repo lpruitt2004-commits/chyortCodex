@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: Forms & Validation</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+        }
+        input {
+            padding: 8px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // TODO: Exercise 1 - Create LoginForm component
+        // function LoginForm() {
+        //   // Add state for email and password
+        //   // Add validation
+        //   // Handle form submission
+        //   return (/* JSX here */)
+        // }
+
+        // TODO: Exercise 2 - Create RegistrationForm component
+        // function RegistrationForm() {
+        //   // Multiple form fields
+        //   // Password confirmation
+        //   // Validation rules
+        //   return (/* JSX here */)
+        // }
+
+        // TODO: Exercise 3 - Create TodoForm component
+        // function TodoForm() {
+        //   // Add todos to list
+        //   // Delete todos
+        //   return (/* JSX here */)
+        // }
+
+        function App() {
+            return (
+                <div>
+                    <h1>Day 4: Forms & Validation Exercises</h1>
+                    
+                    {/* TODO: Use LoginForm component */}
+                    
+                    {/* TODO: Use RegistrationForm component */}
+                    
+                    {/* TODO: Use TodoForm component */}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

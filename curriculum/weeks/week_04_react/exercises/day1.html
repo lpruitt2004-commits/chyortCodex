@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: React Components & JSX</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .user-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .product-list {
+            display: grid;
+            gap: 10px;
+        }
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // TODO: Exercise 1 - Create Welcome component
+        // function Welcome({ name }) {
+        //   return <h1>Welcome, {name}!</h1>
+        // }
+
+        // TODO: Exercise 2 - Create UserCard component
+        // function UserCard({ name, age, email }) {
+        //   return (
+        //     <div className="user-card">
+        //       {/* Display user info here */}
+        //     </div>
+        //   )
+        // }
+
+        // TODO: Exercise 3 - Create ProductList component
+        // function ProductList({ products }) {
+        //   return (
+        //     <div className="product-list">
+        //       {/* Map over products array */}
+        //     </div>
+        //   )
+        // }
+
+        function App() {
+            const products = [
+                { id: 1, name: 'Laptop', price: 999 },
+                { id: 2, name: 'Mouse', price: 25 },
+                { id: 3, name: 'Keyboard', price: 75 }
+            ];
+
+            return (
+                <div>
+                    <h1>Day 1: Components & JSX Exercises</h1>
+                    
+                    {/* TODO: Use Welcome component */}
+                    
+                    {/* TODO: Use UserCard component */}
+                    
+                    {/* TODO: Use ProductList component */}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

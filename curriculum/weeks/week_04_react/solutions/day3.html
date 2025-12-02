@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3: Effects & Lifecycle - SOLUTION</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .timer {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Exercise 1: Timer component
+        function Timer() {
+            const [seconds, setSeconds] = useState(0);
+
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    setSeconds(s => s + 1);
+                }, 1000);
+
+                return () => clearInterval(interval);
+            }, []);
+
+            return (
+                <div>
+                    <h3>Timer</h3>
+                    <div className="timer">{seconds}s</div>
+                </div>
+            );
+        }
+
+        // Exercise 2: DataFetcher component
+        function DataFetcher() {
+            const [data, setData] = useState(null);
+            const [loading, setLoading] = useState(true);
+
+            useEffect(() => {
+                fetch('https://jsonplaceholder.typicode.com/posts/1')
+                    .then(response => response.json())
+                    .then(json => {
+                        setData(json);
+                        setLoading(false);
+                    });
+            }, []);
+
+            if (loading) return <p className="loading">Loading...</p>;
+
+            return (
+                <div>
+                    <h3>Fetched Data</h3>
+                    <h4>{data.title}</h4>
+                    <p>{data.body}</p>
+                </div>
+            );
+        }
+
+        // Exercise 3: DocumentTitleUpdater component
+        function DocumentTitleUpdater() {
+            const [title, setTitle] = useState('React App');
+
+            useEffect(() => {
+                document.title = title;
+            }, [title]);
+
+            return (
+                <div>
+                    <h3>Document Title Updater</h3>
+                    <input 
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="Enter page title"
+                    />
+                    <p>Check the browser tab!</p>
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <h1>Day 3: Effects & Lifecycle Solutions</h1>
+                    
+                    <Timer />
+                    <hr />
+                    <DataFetcher />
+                    <hr />
+                    <DocumentTitleUpdater />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
