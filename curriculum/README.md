@@ -5,20 +5,20 @@
 ### Phase 1: Frontend Foundations (Weeks 1-4)
 - [Week 1: HTML & CSS Fundamentals](weeks/week_01_html_css/README.md)
 - [Week 2: JavaScript Basics](weeks/week_02_js_basics/README.md)
-- [Week 3: Advanced JavaScript](weeks/week_03_js_advanced/README.md) *(coming soon)*
-- [Week 4: React Fundamentals](weeks/week_04_react/README.md) *(coming soon)*
+- [Week 3: Advanced JavaScript](weeks/week_03_js_advanced/README.md)
+- [Week 4: React Fundamentals](weeks/week_04_react/README.md)
 
 ### Phase 2: Backend & Databases (Weeks 5-8)
-- [Week 5: Node.js & Express](weeks/week_05_node_express/README.md) *(coming soon)*
-- [Week 6: PostgreSQL Database](weeks/week_06_postgresql/README.md) *(coming soon)*
-- [Week 7: Authentication & Security](weeks/week_07_auth/README.md) *(coming soon)*
-- [Week 8: Full-Stack Integration](weeks/week_08_fullstack/README.md) *(coming soon)*
+- [Week 5: Node.js & Express](weeks/week_05_node_express/README.md)
+- [Week 6: PostgreSQL Database](weeks/week_06_postgresql/README.md)
+- [Week 7: Authentication & Security](weeks/week_07_auth/README.md)
+- [Week 8: Full-Stack Integration](weeks/week_08_fullstack/README.md)
 
 ### Phase 3: Professional Development (Weeks 9-12)
-- [Week 9: Git & Collaboration](weeks/week_09_git/README.md) *(coming soon)*
-- [Week 10: Testing & TypeScript](weeks/week_10_testing/README.md) *(coming soon)*
-- [Week 11: Deployment](weeks/week_11_deployment/README.md) *(coming soon)*
-- [Week 12: Capstone & Interview Prep](weeks/week_12_capstone/README.md) *(coming soon)*
+- [Week 9: Git & Collaboration](weeks/week_09_git/README.md)
+- [Week 10: Testing & TypeScript](weeks/week_10_testing/README.md)
+- [Week 11: Deployment](weeks/week_11_deployment/README.md)
+- [Week 12: Capstone & Interview Prep](weeks/week_12_capstone/README.md)
 
 ---
 
@@ -39,10 +39,7 @@ curriculum/
 │   ├── project_01_portfolio/
 │   ├── project_02_todo_app/
 │   └── ...
-└── resources/              # Cheat sheets, guides, links
-    ├── git_guide.md
-    ├── css_cheatsheet.md
-    └── interview_prep.md
+
 ```
 
 ---
@@ -61,9 +58,9 @@ curriculum/
 4. **Track Your Progress:**  
    Check off items in `PROGRESS.md` as you complete them
 
-5. **Use ollama_duo for Help:**  
+5. **Use AI Assistant for Help:**  
    ```bash
-   python3 ollama_duo.py -p "Explain CSS Grid with examples"
+   legion -p "Explain CSS Grid with examples"
    ```
 
 6. **Review and Repeat:**  
@@ -79,12 +76,6 @@ curriculum/
 3. Follow along with resources
 4. Complete practice exercises
 5. Mark Day 1 complete in PROGRESS.md
-
-**Generate More Content:**
-```bash
-# Generate detailed week content with AI
-python3 scripts/generate_curriculum.py --weeks 12 --internship-ready
-```
 
 ---
 
@@ -103,17 +94,17 @@ See `PROGRESS.md` for:
 
 **Stuck on a concept?**
 ```bash
-python3 ollama_duo.py -p "Explain [topic] with simple examples" --show-draft
+legion -p "Explain [topic] with simple examples"
 ```
 
 **Need a code review?**
 ```bash
-python3 ollama_duo.py --file mycode.js --optimize --optimize-json
+legion --file mycode.js --optimize
 ```
 
 **Want project ideas?**
 ```bash
-python3 ollama_duo.py -p "Suggest a beginner JavaScript project"
+legion -p "Suggest a beginner JavaScript project"
 ```
 
 ---

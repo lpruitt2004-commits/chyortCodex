@@ -38,8 +38,7 @@ code curriculum/weeks/week_01_html_css/exercises/day1.css
 When you finish an exercise, get it reviewed:
 
 ```bash
-cd curriculum/weeks/week_01_html_css
-./review_code.sh exercises/day1.html
+legion --file exercises/day1.html --optimize
 ```
 
 **What the AI checks:**
@@ -112,27 +111,27 @@ curriculum/
 
 ### Quick Review
 ```bash
-./review_code.sh exercises/day1.html
+legion --file exercises/day1.html --optimize
 ```
 
-### Detailed Review
+### Detailed Review with JSON output
 ```bash
-python3 ../../ollama_duo.py --file exercises/day1.html --optimize --optimize-json
+legion --file exercises/day1.html --optimize --optimize-json
 ```
 
 ### Ask Questions
 ```bash
-python3 ollama_duo.py -p "Explain CSS Flexbox with examples" --show-draft
+legion -p "Explain CSS Flexbox with examples"
 ```
 
 ### Debug Help
 ```bash
-python3 ollama_duo.py -p "Why is my flexbox not centering? [paste your code]"
+legion -p "Why is my flexbox not centering? [paste your code]"
 ```
 
 ### Project Ideas
 ```bash
-python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
+legion -p "Suggest a beginner HTML/CSS project"
 ```
 
 ---
@@ -144,6 +143,7 @@ python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
 - [ ] `exercises/day1.html` & `day1.css` (Resume page)
 - [ ] `exercises/day3.html` & `day3.css` (Flexbox layout)
 - [ ] `exercises/day4.html` & `day4.css` (CSS Grid gallery)
+- [ ] `exercises/day5.html` & `day5.css` (Responsive design)
 - [ ] Week project: Portfolio landing page
 
 **Daily routine:**
@@ -165,6 +165,35 @@ python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
 3. Test in browser console
 4. Get AI review
 5. Fix bugs
+6. Move to solutions/
+
+### Week 3: Advanced JavaScript
+**Files to complete:**
+- [ ] `exercises/day1.js` (Objects & prototypes)
+- [ ] `exercises/day3.js` (Async/await)
+- [ ] `exercises/day5.js` (ES6+ features)
+
+**Daily routine:**
+1. Read day's lesson
+2. Complete exercise in HTML + JS files
+3. Test in browser
+4. Get AI review
+5. Move to solutions/
+
+### Week 4: React Fundamentals
+**Files to complete:**
+- [ ] `exercises/day1.html` (Components & JSX)
+- [ ] `exercises/day2.html` (State & Events)
+- [ ] `exercises/day3.html` (Effects & Lifecycle)
+- [ ] `exercises/day4.html` (Forms & Validation)
+- [ ] `exercises/day5.html` (Context API)
+
+**Daily routine:**
+1. Read day's lesson
+2. Open HTML file in browser (React loaded via CDN)
+3. Complete exercises in <script> tags
+4. Test in browser
+5. Get AI review
 6. Move to solutions/
 
 ---
@@ -201,17 +230,17 @@ python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
 
 ### Stuck on a concept?
 ```bash
-python3 ollama_duo.py -p "Explain [concept] with simple examples"
+legion -p "Explain [concept] with simple examples"
 ```
 
 ### Code not working?
 1. Check browser console for errors
 2. Use console.log() to debug
-3. Ask AI: `python3 ollama_duo.py -p "Debug this error: [error message]"`
+3. Ask AI: `legion -p "Debug this error: [error message]"`
 
 ### Need a better explanation?
 ```bash
-python3 ollama_duo.py -p "Explain CSS Grid like I'm 10 years old" --show-draft
+legion -p "Explain CSS Grid like I'm 10 years old"
 ```
 
 ---
@@ -294,10 +323,10 @@ python3 ollama_duo.py -p "Explain CSS Grid like I'm 10 years old" --show-draft
 cd curriculum/weeks/week_01_html_css
 
 # Review your code
-./review_code.sh exercises/day1.html
+legion --file exercises/day1.html --optimize
 
 # Ask the AI
-python3 ../../ollama_duo.py -p "Your question here"
+legion -p "Your question here"
 
 # Open in browser
 open exercises/day1.html
