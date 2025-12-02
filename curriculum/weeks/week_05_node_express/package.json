@@ -1,0 +1,23 @@
+{
+  "name": "week-05-node-express",
+  "version": "1.0.0",
+  "description": "Week 5: Node.js & Express exercises",
+  "main": "day1.js",
+  "scripts": {
+    "day1": "node exercises/day1.js",
+    "day2": "node exercises/day2.js",
+    "day3": "node exercises/day3.js",
+    "day4": "node exercises/day4.js",
+    "day5": "node exercises/day5.js"
+  },
+  "keywords": ["nodejs", "express", "backend", "api"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "morgan": "^1.10.0",
+    "ejs": "^3.1.9",
+    "dotenv": "^16.3.1"
+  }
+}
