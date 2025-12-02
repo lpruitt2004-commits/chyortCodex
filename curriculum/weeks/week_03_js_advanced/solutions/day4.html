@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 Day 4 - Async/Await - SOLUTION</title>
+    <style>
+        body { font-family: Arial; padding: 20px; max-width: 800px; margin: 0 auto; }
+        button { margin: 5px; padding: 12px 24px; font-size: 16px; cursor: pointer;
+                 background: #3498db; color: white; border: none; border-radius: 5px; }
+        button:hover { background: #2980b9; }
+        .status { margin: 20px 0; padding: 15px; background: #ecf0f1; border-radius: 5px;
+                  border-left: 4px solid #3498db; }
+        .loading { border-left-color: #f39c12; background: #fff3cd; }
+        .error { border-left-color: #e74c3c; background: #f8d7da; }
+        .success { border-left-color: #2ecc71; background: #d5f4e6; }
+    </style>
+</head>
+<body>
+    <h1>Week 3, Day 4: Async/Await - SOLUTION</h1>
+    <p>Open the console (F12) to see your code in action!</p>
+    
+    <div>
+        <button id="fetchBtn">Fetch Random User</button>
+        <button id="multiBtn">Fetch 3 Random Users</button>
+        <button id="errorBtn">Test Error Handling</button>
+    </div>
+    
+    <div class="status" id="status">Click a button to start...</div>
+    
+    <script src="day4.js"></script>
+</body>
+</html>
