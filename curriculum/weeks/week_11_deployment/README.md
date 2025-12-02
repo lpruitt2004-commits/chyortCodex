@@ -52,7 +52,7 @@ Build and deploy a complete application with:
 - Environment-based configuration
 
 ## Prerequisites
-- Docker Desktop installed
+- Docker installed (Docker Desktop for Mac/Windows, or Docker Engine for Linux)
 - GitHub account for Actions
 - Cloud platform account (Render/Railway/Fly.io free tier)
 
@@ -64,13 +64,17 @@ cd curriculum/weeks/week_11_deployment
 docker build -t my-app .
 docker run -p 3000:3000 my-app
 
-# Compose
-docker-compose up
-docker-compose down
+# Compose (v2 syntax)
+docker compose up
+docker compose down
 
 # Cloud deployment (example: Fly.io)
 fly launch
 fly deploy
+
+# Get AI code review
+legion --file exercises/day1/Dockerfile --optimize
+legion --file exercises/day2/docker-compose.yml --optimize
 ```
 
 ## Skills Checklist
@@ -80,6 +84,27 @@ fly deploy
 - [ ] Set up CI/CD with GitHub Actions
 - [ ] Deploy to cloud platform
 - [ ] Configure health checks and monitoring
+
+## Troubleshooting
+
+### Docker Issues
+- **Port already in use**: `docker ps` to find conflicting container, then `docker stop <id>`
+- **Build failures**: Check Dockerfile syntax with `legion --file Dockerfile --optimize`
+- **Permission errors**: Add user to docker group (Linux) or restart Docker Desktop
+
+### Deployment Issues
+- **Build timeouts**: Optimize Docker image size (multi-stage builds, .dockerignore)
+- **Environment variables**: Verify secrets are set in platform dashboard
+- **Health check failures**: Test locally first with `curl http://localhost:3000/health`
+
+### Get Help
+```bash
+# Review deployment config
+legion --file render.yaml --optimize
+
+# Debug specific issue
+legion -p "Why is my Docker container exiting immediately?"
+```
 
 ## Resources
 - Docker Docs: https://docs.docker.com/
