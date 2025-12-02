@@ -1,16 +1,33 @@
-# React + Vite
+# Week 4 – Day 1 Solution: Components, JSX & Props
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project contains the completed solution for Day 1 of React Fundamentals.
 
-Currently, two official plugins are available:
+## What Was Implemented
+- Functional components (`Welcome`, `UserCard`, `ProductList`, `Badge`, `Navbar`)
+- Prop destructuring and default rendering
+- List rendering with stable `key` usage
+- Conditional rendering for optional props
+- Basic styling in `App.css`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Try It
+```bash
+npm install
+npm run dev
+```
+Open: http://localhost:5173
 
-## React Compiler
+## Scripts
+- `npm run dev` – Start Vite dev server
+- `npm run build` – Production build
+- `npm run preview` – Preview production build
+- `npm run lint` – Run ESLint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Learning Highlights
+Compare this with the exercise version to see:
+- Prop-driven rendering patterns
+- Reusable UI primitives
+- Separation of sample data from component logic
+- Proper key usage in lists
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Next Step
+Proceed to Day 2 (State & Events) to introduce interactivity with `useState`.

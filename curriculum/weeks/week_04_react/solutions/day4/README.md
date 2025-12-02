@@ -1,16 +1,38 @@
-# React + Vite
+# Week 4 – Day 4 Solution: React Router
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Completed routing solution with navigation and dynamic routes.
 
-Currently, two official plugins are available:
+## Features
+- Navigation bar with semantic `<nav>` and accessible links
+- Routes: Home / About / Contact / Users / User profile / 404
+- Dynamic URL segment (`/users/:userId`) with `useParams`
+- Programmatic navigation via `useNavigate`
+- Graceful not found fallback
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Run
+```bash
+npm install
+npm run dev
+```
+Open: http://localhost:5173
 
-## React Compiler
+## Scripts
+- `npm run dev` – Start dev server
+- `npm run build` – Production build
+- `npm run preview` – Preview build
+- `npm run lint` – Run ESLint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Implementation Notes
+- Keeps user data mock inline for clarity
+- `NotFound` gives a recovery action (Go Home)
+- `UsersList` uses stable keys and link composition
+- Router wraps entire app in `BrowserRouter`
 
-## Expanding the ESLint configuration
+## Extend Ideas
+- Nested routes for user sub-sections
+- Suspense + lazy loaded route components
+- Protected routes wrapper
+- Active link styling with NavLink
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Next Step
+Move to Day 5 for global state via Context API.

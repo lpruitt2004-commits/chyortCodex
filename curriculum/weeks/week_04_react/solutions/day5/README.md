@@ -1,16 +1,42 @@
-# React + Vite
+# Week 4 – Day 5 Solution: Context API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Global state patterns implemented for theme + auth.
 
-Currently, two official plugins are available:
+## Provided Contexts
+- `ThemeContext` – light/dark + toggle
+- `UserContext` – login/logout with session info
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Components
+- `Header` consumes theme & toggles it
+- `Content` reflects active theme styling
+- `LoginForm` writes auth state
+- `UserDisplay` conditionally renders auth view or form
 
-## React Compiler
+## Run
+```bash
+npm install
+npm run dev
+```
+Open: http://localhost:5173
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Scripts
+- `npm run dev` – Start dev server
+- `npm run build` – Production build
+- `npm run preview` – Preview build
+- `npm run lint` – Run ESLint
 
-## Expanding the ESLint configuration
+## Patterns Shown
+| Concept | Implementation |
+| ------- | -------------- |
+| Provider composition | `<ThemeProvider><UserProvider>…` |
+| State lifting avoidance | context instead of prop drilling |
+| Derived UI | theme className applied selectively |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Extension Ideas
+- Persist auth to `localStorage`
+- Custom hooks `useTheme`, `useUser`
+- Add role-based access control
+- Multiple context consumers
+
+## Capstone Connection
+These patterns mirror global state you'll use in full-stack apps (auth, theming, session).
