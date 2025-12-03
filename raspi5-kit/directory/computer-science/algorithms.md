@@ -1,0 +1,3 @@
+# Algorithms
+
+Algorithms are step-by-step procedures for solving problems or performing tasks.

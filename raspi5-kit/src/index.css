@@ -1,37 +1,125 @@
-/* Global font size for Raspberry Pi 5 TUI/PWA */
+/* Chyort-Boy Retro-Futuristic CRT Interface */
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-size: 16px;
 }
+
 body {
+  font-family: "Share Tech Mono", "Courier New", monospace;
   font-size: 1rem;
+  background: #0a0a0a;
+  color: #00ff00;
+  overflow: hidden;
 }
+
 @media (min-width: 1200px) {
   html {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
+/* CRT Screen Effect */
 .app-flex {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  background: #222;
-  color: #fff;
+  background: #0d0d0d;
+  color: #00ff00;
+  position: relative;
+  animation: flicker 0.15s infinite;
 }
 
+/* Scanline overlay */
+.app-flex::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Screen glow */
+.app-flex::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 255, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.97;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.98;
+  }
+}
+
+/* Sidebar - Terminal Style */
 .sidebar {
-  width: 220px;
-  background: #333;
-  padding: 1rem;
+  width: 260px;
+  background: rgba(0, 20, 0, 0.95);
+  border-right: 2px solid #00ff00;
+  padding: 1.5rem 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  box-shadow: inset 0 0 30px rgba(0, 255, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar-title {
-  font-size: 1.5rem;
-  margin: 0;
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  border-bottom: 2px solid #00ff00;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* Add subtitle */
+.sidebar-title::after {
+  content: "PERSONAL INTERFACE DEVICE";
+  display: block;
+  font-size: 0.5rem;
+  letter-spacing: 2px;
+  margin-top: 0.3rem;
+  opacity: 0.7;
 }
 
 .sidebar-nav ul {
@@ -41,26 +129,91 @@ body {
   margin-top: 2rem;
 }
 
-.sidebar-btn {
-  width: 100%;
-  background: none;
-  color: #fff;
-  border: none;
-  font-size: 1rem;
-  text-align: left;
-  padding: 0.5rem 0;
-  margin-bottom: 1rem;
-  cursor: pointer;
+.sidebar-nav li {
+  margin-bottom: 0.5rem;
 }
 
+.sidebar-btn {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  font-size: 1rem;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  position: relative;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.sidebar-btn::before {
+  content: "> ";
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-btn:hover {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 15px rgba(0, 255, 0, 0.2);
+  border-color: #00ff00;
+}
+
+.sidebar-btn:hover::before {
+  opacity: 1;
+}
+
+.sidebar-btn.active {
+  background: rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.7), inset 0 0 20px rgba(0, 255, 0, 0.3);
+  border-color: #00ff00;
+  font-weight: bold;
+}
+
+.sidebar-btn.active::before {
+  content: "● ";
+  opacity: 1;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Main Content Area */
 .main-content {
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: rgba(0, 10, 0, 0.9);
+  position: relative;
+  z-index: 1;
+}
+
+.main-content h2 {
+  color: #00ff00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-shadow: 0 0 10px #00ff00;
+  border-bottom: 2px solid #00ff00;
+  padding-bottom: 0.5rem;
+}
+
+.main-content p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 3px #00ff00;
 }
 
 .main-title {
@@ -70,4 +223,748 @@ body {
 .main-lead {
   font-size: 1.25rem;
   margin-bottom: 1rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+  border-left: 1px solid #00ff00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 0, 0.5);
+  border: 1px solid #00ff00;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 0, 0.7);
+}
+
+/* Responsive adjustments */
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    height: 100vh;
+    width: 260px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-title {
+    font-size: 1.3rem;
+  }
+
+  .main-content {
+    padding: 4rem 1rem 1rem 1rem;
+    width: 100%;
+  }
+
+  .app-flex {
+    flex-direction: column;
+  }
+}
+
+/* === Component-Specific Styles === */
+
+/* Common Button Styles */
+button {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  background: rgba(0, 0, 0, 0.5);
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+button:hover {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  background: rgba(0, 0, 0, 0.7);
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 0.5rem;
+  font-size: 1rem;
+  text-shadow: 0 0 3px #00ff00;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+input[type="checkbox"] {
+  accent-color: #00ff00;
+  margin-right: 0.5rem;
+}
+
+/* Files Component */
+.files-container {
+  width: 100%;
+}
+
+.files-intro {
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.files-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.back-btn {
+  padding: 0.5rem 1rem;
+}
+
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.directory-item {
+  padding: 1.5rem;
+  border: 1px solid #00ff00;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.directory-item:hover {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.dir-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.dir-name {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.file-list {
+  margin-top: 1.5rem;
+}
+
+.file-item {
+  padding: 1rem;
+  border: 1px solid #00ff00;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.file-item:hover {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.file-icon {
+  font-size: 1.5rem;
+}
+
+.file-content {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #00ff00;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.file-content pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  line-height: 1.6;
+}
+
+/* Tasks Component */
+.tasks-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+.task-input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.task-input {
+  flex: 1;
+}
+
+.priority-select {
+  width: 120px;
+}
+
+.add-task-btn {
+  padding: 0.5rem 1rem;
+}
+
+.task-list {
+  margin-top: 1.5rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #00ff00;
+  margin-bottom: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.task-item.completed {
+  opacity: 0.6;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+}
+
+.task-item.priority-high {
+  border-color: #ff0000;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.task-text {
+  flex: 1;
+}
+
+.task-priority {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.delete-btn {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.empty-state {
+  text-align: center;
+  opacity: 0.6;
+  margin-top: 2rem;
+}
+
+/* Notes Component */
+.notes-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+.note-editor {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #00ff00;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.note-title-input {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.note-content-input {
+  width: 100%;
+  resize: vertical;
+  min-height: 150px;
+  margin-bottom: 1rem;
+}
+
+.note-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 0.5rem 1rem;
+}
+
+.notes-list {
+  margin-top: 2rem;
+}
+
+.notes-list h3 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #00ff00;
+  padding-bottom: 0.5rem;
+}
+
+.note-item {
+  padding: 1rem;
+  border: 1px solid #00ff00;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.note-header h4 {
+  margin: 0;
+}
+
+.note-timestamp {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.note-preview {
+  margin: 0.5rem 0;
+  opacity: 0.8;
+}
+
+.note-item-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.edit-btn {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+/* Messages Component */
+.messages-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+.encryption-status {
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid #00ff00;
+  margin-bottom: 1.5rem;
+}
+
+.message-compose {
+  padding: 1.5rem;
+  border: 1px solid #00ff00;
+  margin-bottom: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.recipient-input {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.message-input {
+  width: 100%;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.send-btn {
+  padding: 0.5rem 1.5rem;
+}
+
+.message-list h3 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #00ff00;
+  padding-bottom: 0.5rem;
+}
+
+.message-item {
+  padding: 1rem;
+  border: 1px solid #00ff00;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.message-item.sent {
+  border-color: #00ff00;
+  margin-left: 2rem;
+}
+
+.message-item.received {
+  margin-right: 2rem;
+}
+
+.message-header {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.message-from {
+  font-weight: bold;
+}
+
+.message-time {
+  opacity: 0.7;
+  margin-left: auto;
+}
+
+.message-content {
+  margin: 0.5rem 0;
+}
+
+.encrypted-badge {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+/* Calendar Component */
+.calendar-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+.event-form {
+  padding: 1.5rem;
+  border: 1px solid #00ff00;
+  margin-bottom: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.event-input {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.datetime-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.date-input,
+.time-input {
+  flex: 1;
+}
+
+.event-description {
+  width: 100%;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.add-event-btn {
+  padding: 0.5rem 1.5rem;
+}
+
+.events-list h3 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #00ff00;
+  padding-bottom: 0.5rem;
+}
+
+.event-item {
+  padding: 1rem;
+  border: 1px solid #00ff00;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.event-header h4 {
+  margin: 0;
+}
+
+.event-datetime {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.event-desc {
+  margin: 0.5rem 0 0 0;
+  opacity: 0.8;
+}
+
+/* Profile Component */
+.profile-container {
+  width: 100%;
+  max-width: 700px;
+}
+
+.profile-card {
+  padding: 2rem;
+  border: 2px solid #00ff00;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #00ff00;
+}
+
+.profile-avatar {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.username-display h3 {
+  margin-bottom: 0.5rem;
+}
+
+.username-edit {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.username-input {
+  max-width: 200px;
+}
+
+.profile-info {
+  margin-bottom: 2rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.info-label {
+  font-weight: bold;
+}
+
+.profile-stats {
+  margin-bottom: 2rem;
+}
+
+.profile-stats h4 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.profile-subjects h4 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.subjects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.subject-badge {
+  padding: 0.5rem 1rem;
+  border: 1px solid #00ff00;
+  background: rgba(0, 255, 0, 0.1);
+}
+
+/* Settings Component */
+.settings-container {
+  width: 100%;
+  max-width: 700px;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #00ff00;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.settings-section h3 {
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #00ff00;
+  padding-bottom: 0.5rem;
+}
+
+.setting-item {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.setting-item label {
+  display: flex;
+  align-items: center;
+}
+
+.setting-select {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+}
+
+.settings-actions {
+  margin-top: 2rem;
+}
+
+.reset-btn {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 0, 0, 0.1);
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.reset-btn:hover {
+  background: rgba(255, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* NewsFeed Component */
+.newsfeed-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+.feed-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.filter-btn.active {
+  background: rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  font-weight: bold;
+}
+
+.feed-list {
+  margin-top: 1.5rem;
+}
+
+.feed-item {
+  padding: 1rem;
+  border: 1px solid #00ff00;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  gap: 1rem;
+}
+
+.feed-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.feed-content {
+  flex: 1;
+}
+
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.feed-header h4 {
+  margin: 0;
+}
+
+.feed-time {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.feed-content p {
+  margin: 0;
+  opacity: 0.8;
 }

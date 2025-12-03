@@ -1,21 +1,26 @@
 {
-  "short_name": "Pi5DemoKit",
-  "name": "Raspberry Pi 5 Demo Kit",
+  "short_name": "Chyort-Boy",
+  "name": "Chyort-Boy Personal Interface Device",
+  "description": "Retro-futuristic personal interface device for academic and productivity management",
   "icons": [
     {
       "src": "icon-192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "icon-512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#222",
-  "theme_color": "#333",
-  "orientation": "landscape"
+  "background_color": "#0a0a0a",
+  "theme_color": "#00ff00",
+  "orientation": "any",
+  "categories": ["productivity", "education", "utilities"],
+  "screenshots": []
 }
