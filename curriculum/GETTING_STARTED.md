@@ -8,6 +8,8 @@ You’ll work through hands-on exercises, get instant AI code reviews, and build
 
 ## 📅 Quick Workflow
 
+<<<<<<< HEAD
+
 1. **Read the Week’s README**
    - Example: `code curriculum/weeks/week_01_html_css/README.md`
    - _Where to find book references:_ Each README lists the Nixon chapters/sections for the week’s topics and exercises.
@@ -22,7 +24,77 @@ You’ll work through hands-on exercises, get instant AI code reviews, and build
 6. **Move to Solutions**
    - Example: `cp exercises/day1.html solutions/day1.html`
 7. **Track Progress**
-   - Example: `code curriculum/PROGRESS.md`
+   - # Example: `code curriculum/PROGRESS.md`
+
+### 1. Read the Week Overview
+
+```bash
+open curriculum/weeks/week_01_html_css/README.md
+```
+
+### 2. Complete Daily Exercises
+
+Each day has practice files in the `exercises/` folder:
+
+**Example - Week 1, Day 1:**
+
+```bash
+# Open the exercise
+open curriculum/weeks/week_01_html_css/exercises/day1.html
+
+# Edit in VS Code
+code curriculum/weeks/week_01_html_css/exercises/day1.html
+code curriculum/weeks/week_01_html_css/exercises/day1.css
+```
+
+### 3. Test Your Work
+
+- Open the HTML file in your browser
+- Refresh browser to see updates
+- Check browser console (F12) for JavaScript errors
+
+### 4. Get AI Code Review (Your "Instructor")
+
+When you finish an exercise, get it reviewed:
+
+```bash
+legion --file exercises/day1.html --optimize
+```
+
+**What the AI checks:**
+
+- ✅ Code correctness
+- ✅ Best practices
+- ✅ Performance issues
+- ✅ Bugs or edge cases
+- ✅ Suggestions for improvement
+
+### 5. Fix Issues & Re-submit
+
+If the AI finds issues:
+
+1. Read the feedback
+2. Fix your code
+3. Run review again
+
+### 6. Move to Solutions
+
+Once your code is solid:
+
+```bash
+cp exercises/day1.html solutions/day1.html
+cp exercises/day1.css solutions/day1.css
+```
+
+### 7. Track Progress
+
+Mark items complete in your progress tracker:
+
+```bash
+open curriculum/PROGRESS.md
+```
+
+> > > > > > > 755e7f0a4fc4f5d55cadacf50517299ff5bcc900
 
 ---
 
@@ -41,55 +113,61 @@ curriculum/
 │   ├── week_02_js_basics/        # Nixon Ch. 4-5: JavaScript
 │   ├── week_03_php_basics/       # Nixon Ch. 6-8: PHP
 │   ├── week_04_mysql_integration/# Nixon Ch. 9-12: MySQL & PHP
-│   └── ...
 │
 └── projects/
     ├── project_01_portfolio/
     │   └── README.md           # Full project spec
-    └── ...
-```
-
 ---
 
----
-
-## 🤖 Using the AI Instructor
 
 ### Quick Review
-
-```bash
-./review_code.sh exercises/day1.html
 ```
 
-### Detailed Review
+=======
 
-```bash
-python3 ../../ollama_duo.py --file exercises/day1.html --optimize --optimize-json
-```
+### Detailed Review with JSON output
+
+> > > > > > > 755e7f0a4fc4f5d55cadacf50517299ff5bcc900
+> > > > > > > legion --file exercises/day1.html --optimize --optimize-json
+
+````
 
 ### Ask Questions
 
 ```bash
-python3 ollama_duo.py -p "Explain CSS Flexbox with examples" --show-draft
-```
+legion -p "Explain CSS Flexbox with examples"
+````
 
 ### Debug Help
 
 ```bash
-python3 ollama_duo.py -p "Why is my flexbox not centering? [paste your code]"
+legion -p "Why is my flexbox not centering? [paste your code]"
 ```
 
 ### Project Ideas
 
 ```bash
-python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
+legion -p "Suggest a beginner HTML/CSS project"
 ```
 
 ---
 
----
+<<<<<<< HEAD
 
 ## 📋 Week-by-Week Guide (with Book References)
+
+=======
+
+### Week 1: HTML & CSS
+
+**Files to complete:**
+
+- [ ] `exercises/day1.html` & `day1.css` (Resume page)
+- [ ] `exercises/day3.html` & `day3.css` (Flexbox layout)
+- [ ] `exercises/day4.html` & `day4.css` (CSS Grid gallery)
+- [ ] `exercises/day5.html` & `day5.css` (Responsive design)
+- [ ] Week project: Portfolio landing page
+  > > > > > > > 755e7f0a4fc4f5d55cadacf50517299ff5bcc900
 
 ### Week 1: HTML & CSS (Nixon Ch. 1-3)
 
@@ -101,27 +179,33 @@ python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
 
 - [ ] Complete daily exercises in `exercises/`
 - [ ] Project: Interactive form
-- _Book references in README_
-
-### Week 3: PHP Fundamentals (Nixon Ch. 6-8)
-
 - [ ] Complete daily exercises in `exercises/`
 - [ ] Project: Contact form with PHP
-- _Book references in README_
-
-### Week 4: MySQL & Integration (Nixon Ch. 9-12)
-
 - [ ] Complete daily exercises in `exercises/`
 - [ ] Project: Guestbook/blog
-- _Book references in README_
 
-...and so on for each week.
+### Week 3: Advanced JavaScript
+
+- [ ] `exercises/day1.js` (Objects & prototypes)
+- [ ] `exercises/day3.js` (Async/await)
+- [ ] `exercises/day5.js` (ES6+ features)
+
+3. Test in browser
+4. Get AI review
+
+- [ ] `exercises/day1.html` (Components & JSX)
+- [ ] `exercises/day2.html` (State & Events)
+      **Daily routine:**
+
+2. Open HTML file in browser (React loaded via CDN)
+3. Complete exercises in <script> tags
+4. Test in browser
+5. Get AI review
+6. Move to solutions/
 
 ---
 
 ## 🎯 Tips for Success
-
-### 1. Code Every Day
 
 - Set aside 4-6 hours minimum
 - Consistency beats cramming
@@ -134,11 +218,8 @@ python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
 
 ### 3. Use the AI Instructor
 
-- Review your code before moving on
 - Ask questions when stuck
 - Get explanations for concepts
-
-### 4. Build Real Projects
 
 - Complete all weekly projects
 - Deploy them live
@@ -157,19 +238,19 @@ python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
 ### Stuck on a concept?
 
 ```bash
-python3 ollama_duo.py -p "Explain [concept] with simple examples"
+legion -p "Explain [concept] with simple examples"
 ```
 
 ### Code not working?
 
 1. Check browser console for errors
 2. Use console.log() to debug
-3. Ask AI: `python3 ollama_duo.py -p "Debug this error: [error message]"`
+3. Ask AI: `legion -p "Debug this error: [error message]"`
 
 ### Need a better explanation?
 
 ```bash
-python3 ollama_duo.py -p "Explain CSS Grid like I'm 10 years old" --show-draft
+legion -p "Explain CSS Grid like I'm 10 years old"
 ```
 
 ---
@@ -259,10 +340,10 @@ python3 ollama_duo.py -p "Explain CSS Grid like I'm 10 years old" --show-draft
 cd curriculum/weeks/week_01_html_css
 
 # Review your code
-./review_code.sh exercises/day1.html
+legion --file exercises/day1.html --optimize
 
 # Ask the AI
-python3 ../../ollama_duo.py -p "Your question here"
+legion -p "Your question here"
 
 # Open in browser
 open exercises/day1.html

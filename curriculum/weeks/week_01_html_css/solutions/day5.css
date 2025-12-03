@@ -1,0 +1,249 @@
+/* Week 1 Day 5: Responsive Design Practice - SOLUTION
+ * 
+ * Mobile-first approach with CSS variables
+ * Breakpoints: 768px (tablet), 1024px (desktop)
+ * Demonstrates: flexbox, grid, media queries, CSS variables
+ */
+
+/* CSS Variables */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --text-color: #333;
+    --bg-color: #f5f5f5;
+    --card-bg: #ffffff;
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== MOBILE-FIRST BASE STYLES ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Navbar - Mobile (stacked) */
+.navbar {
+    background-color: var(--dark-color);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-links li {
+    text-align: center;
+}
+
+.nav-links a {
+    color: var(--light-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section - Mobile */
+.hero {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Cards - Mobile (1 column, stacked) */
+.cards {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--card-bg);
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    color: var(--dark-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ========== TABLET: 768px and up ========== */
+@media (min-width: 768px) {
+    /* Navbar - Horizontal */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+    
+    .logo {
+        margin-bottom: 0;
+        text-align: left;
+    }
+    
+    .nav-links {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .nav-links li {
+        text-align: left;
+    }
+    
+    /* Hero - Larger text */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    /* Cards - 2 columns using flexbox */
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        padding: 3rem 2rem;
+    }
+    
+    .card {
+        flex: 1 1 calc(50% - 1.5rem);
+        margin-bottom: 0;
+        min-width: 250px;
+    }
+}
+
+/* ========== DESKTOP: 1024px and up ========== */
+@media (min-width: 1024px) {
+    /* Navbar - Max width container */
+    .navbar {
+        max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 0 0 10px 10px;
+    }
+    
+    /* Hero - Even larger */
+    .hero {
+        padding: 5rem 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+    }
+    
+    /* Cards - 3 columns using grid */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        padding: 4rem 2rem;
+    }
+    
+    .card {
+        flex: none;
+    }
+}
+
+/* ========== DARK MODE ========== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #ecf0f1;
+        --bg-color: #1a1a1a;
+        --card-bg: #2c2c2c;
+        --dark-color: #34495e;
+        --light-color: #bdc3c7;
+    }
+    
+    .card p {
+        color: #bdc3c7;
+    }
+}

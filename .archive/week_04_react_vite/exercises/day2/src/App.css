@@ -1,0 +1,158 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+section h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  border: none;
+  border-radius: 4px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+button.danger {
+  background: #ef4444;
+}
+
+button.danger:hover {
+  background: #dc2626;
+}
+
+/* Counter */
+.counter {
+  text-align: center;
+}
+
+.counter h3 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+/* Toggle */
+.toggle {
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.toggle.on {
+  background-color: #10b981;
+  color: white;
+}
+
+.toggle.off {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* Text Mirror */
+.text-mirror input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.text-mirror .mirror {
+  padding: 1rem;
+  background: white;
+  border: 2px solid #3b82f6;
+  border-radius: 4px;
+  min-height: 3rem;
+}
+
+.text-mirror .char-count {
+  color: #666;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Login Form */
+form {
+  max-width: 400px;
+}
+
+form input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form .error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+form .success {
+  color: #10b981;
+  padding: 1rem;
+  background: #d1fae5;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+/* Todo List */
+.todo-list input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.todo-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.todo-item button {
+  margin: 0;
+}
+
+.empty-state {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+  font-style: italic;
+}

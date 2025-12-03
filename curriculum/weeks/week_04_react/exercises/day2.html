@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: State & Events</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+        .counter {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // TODO: Exercise 1 - Create Counter component
+        // function Counter() {
+        //   // Add state for count
+        //   // Add increment/decrement/reset handlers
+        //   return (/* JSX here */)
+        // }
+
+        // TODO: Exercise 2 - Create ToggleSwitch component
+        // function ToggleSwitch() {
+        //   // Add state for on/off
+        //   // Add toggle handler
+        //   return (/* JSX here */)
+        // }
+
+        // TODO: Exercise 3 - Create TextMirror component
+        // function TextMirror() {
+        //   // Add state for text
+        //   // Add onChange handler
+        //   return (/* JSX here */)
+        // }
+
+        function App() {
+            return (
+                <div>
+                    <h1>Day 2: State & Events Exercises</h1>
+                    
+                    {/* TODO: Use Counter component */}
+                    
+                    {/* TODO: Use ToggleSwitch component */}
+                    
+                    {/* TODO: Use TextMirror component */}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "**/curriculum/weeks/week_11_deployment/exercises/day1/Dockerfile": "plaintext",
+    "**/curriculum/weeks/week_11_deployment/exercises/day2/Dockerfile": "plaintext",
+    "**/curriculum/weeks/week_11_deployment/exercises/**/docker-compose.yml": "plaintext"
+  }
+}

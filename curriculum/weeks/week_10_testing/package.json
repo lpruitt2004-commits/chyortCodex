@@ -1,0 +1,31 @@
+{
+  "name": "week_10_testing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "npm run test:solutions",
+    "test:solutions": "jest --selectProjects day1-solutions day2-solutions day3-solutions day4-solutions day5-solutions",
+    "test:exercises": "jest --selectProjects day1-exercises day2-exercises day3-exercises day4-exercises day5-exercises",
+    "coverage": "jest --coverage --selectProjects day1-solutions day2-solutions day3-solutions day4-solutions day5-solutions",
+    "day1": "jest --selectProjects day1-exercises",
+    "day2": "jest --selectProjects day2-exercises",
+    "day3": "jest --selectProjects day3-exercises",
+    "day4": "jest --selectProjects day4-exercises",
+    "day5": "jest --selectProjects day5-exercises"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.30",
+    "@types/supertest": "^6.0.3",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

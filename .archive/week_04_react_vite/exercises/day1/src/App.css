@@ -1,0 +1,112 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+section h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+/* Styles for Exercise 2: UserCard */
+.user-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 300px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Styles for Exercise 3: ProductList */
+.product-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.product-item {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styles for Exercise 4: Badge */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0.25rem;
+}
+
+.badge-success {
+  background-color: #10b981;
+  color: white;
+}
+
+.badge-warning {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.badge-error {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* Styles for Exercise 5: Navbar */
+nav {
+  background-color: #1f2937;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+nav li {
+  color: white;
+}
+
+nav .brand {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-right: auto;
+}
+
+nav a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: white;
+}

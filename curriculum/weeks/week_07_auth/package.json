@@ -1,0 +1,41 @@
+{
+  "name": "week_07_auth",
+  "version": "1.0.0",
+  "description": "Week 7: Authentication & Security - Exercises and Solutions",
+  "main": "solutions/day1.js",
+  "scripts": {
+    "day1": "node solutions/day1.js",
+    "day2": "node solutions/day2.js",
+    "day3": "node solutions/day3.js",
+    "day4": "node solutions/day4.js",
+    "day5": "node solutions/day5.js",
+    "test": "echo \"No tests specified yet\""
+  },
+  "keywords": [
+    "auth",
+    "jwt",
+    "sessions",
+    "security",
+    "node",
+    "express"
+  ],
+  "author": "chyortCodex",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.3.1",
+    "express-session": "^1.17.3",
+    "helmet": "^7.0.0",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

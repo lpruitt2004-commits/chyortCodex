@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5: Fetch API - SOLUTION</title>
+    <style>
+        body { font-family: Arial; padding: 20px; max-width: 900px; margin: 0 auto; }
+        button { margin: 5px; padding: 12px 24px; background: #3498db; color: white;
+                 border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #2980b9; }
+        .container { display: grid; gap: 20px; margin-top: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; 
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card h3 { margin-top: 0; color: #2c3e50; }
+        .loading { color: #f39c12; }
+        .error { color: #e74c3c; }
+        .success { color: #2ecc71; }
+        pre { background: #ecf0f1; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Day 5: Fetch API - SOLUTION</h1>
+    <p>Open the console (F12) for detailed logging</p>
+    
+    <div>
+        <button id="getBtn">GET Request</button>
+        <button id="postBtn">POST Request</button>
+        <button id="allPostsBtn">Fetch All Posts</button>
+        <button id="weatherBtn">Fetch Weather</button>
+    </div>
+    
+    <div class="container" id="output"></div>
+    
+    <script src="day5.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 30px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+header nav a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #5dade2;
+    text-decoration: underline;
+}
+
+/* Section Styles */
+section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #34495e;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+/* Paragraph Styles */
+p {
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #2c3e50;
+}
+
+/* List Styles */
+ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Article Styles (for multiple entries) */
+article {
+    margin-bottom: 25px;
+}
+
+article:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 30px;
+}
+
+/* Links */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.1rem;
+    }
+}

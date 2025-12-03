@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 Day 4 - Event Handling - SOLUTION</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        button { 
+            margin: 5px; 
+            padding: 12px 24px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .box { 
+            width: 200px; 
+            height: 200px; 
+            background: lightblue; 
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            user-select: none;
+        }
+        .box:hover {
+            transform: scale(1.05);
+        }
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #d5f4e6;
+            border-left: 4px solid #2ecc71;
+            border-radius: 5px;
+            display: none;
+        }
+        .key-display {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 4px solid #f39c12;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Handling Practice - SOLUTION</h1>
+    
+    <button id="clickBtn">Click Me!</button>
+    <button id="hoverBtn">Hover Over Me!</button>
+    
+    <div class="box" id="colorBox">Click to change color</div>
+    
+    <form id="myForm">
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button type="submit">Submit</button>
+    </form>
+    
+    <div id="output"></div>
+    
+    <div class="key-display">
+        Press any key to see keyboard events...
+        <div id="keyOutput"></div>
+    </div>
+    
+    <script src="day4.js"></script>
+</body>
+</html>

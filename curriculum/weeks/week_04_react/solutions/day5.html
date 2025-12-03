@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5: Context & Advanced Patterns - SOLUTION</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        .dark {
+            background: #222;
+            color: #fff;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useContext, createContext } = React;
+
+        // Exercise 1: Create ThemeContext
+        const ThemeContext = createContext();
+
+        // Exercise 2: ThemeProvider component
+        function ThemeProvider({ children }) {
+            const [theme, setTheme] = useState('light');
+
+            const toggleTheme = () => {
+                setTheme(theme === 'light' ? 'dark' : 'light');
+            };
+
+            return (
+                <ThemeContext.Provider value={{ theme, toggleTheme }}>
+                    {children}
+                </ThemeContext.Provider>
+            );
+        }
+
+        // Exercise 3: ThemedButton component
+        function ThemedButton() {
+            const { theme, toggleTheme } = useContext(ThemeContext);
+
+            return (
+                <button onClick={toggleTheme}>
+                    Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+                </button>
+            );
+        }
+
+        // Exercise 4: UserContext for authentication
+        const UserContext = createContext();
+
+        function UserProvider({ children }) {
+            const [user, setUser] = useState(null);
+
+            const login = (username) => {
+                setUser({ username, loggedInAt: new Date().toLocaleTimeString() });
+            };
+
+            const logout = () => {
+                setUser(null);
+            };
+
+            return (
+                <UserContext.Provider value={{ user, login, logout }}>
+                    {children}
+                </UserContext.Provider>
+            );
+        }
+
+        function UserProfile() {
+            const { user, login, logout } = useContext(UserContext);
+            const [username, setUsername] = useState('');
+
+            if (!user) {
+                return (
+                    <div>
+                        <h3>Please Log In</h3>
+                        <input 
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Enter username"
+                        />
+                        <button onClick={() => login(username)}>Login</button>
+                    </div>
+                );
+            }
+
+            return (
+                <div>
+                    <h3>Welcome, {user.username}!</h3>
+                    <p>Logged in at: {user.loggedInAt}</p>
+                    <button onClick={logout}>Logout</button>
+                </div>
+            );
+        }
+
+        function App() {
+            const { theme } = useContext(ThemeContext);
+
+            return (
+                <div className={theme}>
+                    <h1>Day 5: Context & Advanced Patterns Solutions</h1>
+                    
+                    <h2>Theme Context</h2>
+                    <p>Current theme: <strong>{theme}</strong></p>
+                    <ThemedButton />
+                    
+                    <hr />
+                    
+                    <h2>User Context</h2>
+                    <UserProfile />
+                </div>
+            );
+        }
+
+        function Root() {
+            return (
+                <ThemeProvider>
+                    <UserProvider>
+                        <App />
+                    </UserProvider>
+                </ThemeProvider>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Root />);
+    </script>
+</body>
+</html>
