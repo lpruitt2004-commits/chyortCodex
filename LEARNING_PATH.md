@@ -1,257 +1,155 @@
-# LearningFuze-Style Fullstack Web Development Curriculum
+# 12-Week PHP, MySQL & JavaScript Web Development Curriculum (Robin Nixon Inspired)
 
 ## 🎯 Program Overview
-**Duration:** 12 weeks (480+ hours)  
-**Goal:** Become internship-ready fullstack web developer  
-**Focus:** Modern JavaScript stack, real-world projects, portfolio building
+
+**Duration:** 12 weeks (flexible pace)
+**Goal:** Build dynamic, database-driven websites using PHP, MySQL, JavaScript, HTML, and CSS
+**Focus:** Practical skills, hands-on coding, and real-world projects
 
 ---
 
 ## 📚 Curriculum Outline
 
-### **Phase 1: Frontend Foundations (Weeks 1-4)**
+### **Weeks 1-2: HTML & CSS Foundations**
 
-#### Week 1: HTML & CSS Fundamentals
-- Semantic HTML5
-- CSS Box Model, Flexbox, Grid
+- HTML5 structure, elements, forms, tables
+- CSS basics, selectors, layout, colors, typography
 - Responsive design principles
-- **Project:** Personal portfolio landing page
+- Accessibility basics
+- **Project:** Personal homepage with forms and table
 
-#### Week 2: JavaScript Basics
-- Variables, data types, operators
-- Functions, scope, closures
-- DOM manipulation
-- Event handling
-- **Project:** Interactive to-do list app
+### **Weeks 3-4: JavaScript Essentials**
 
-#### Week 3: Advanced JavaScript
-- ES6+ features (arrow functions, destructuring, modules)
-- Asynchronous JavaScript (callbacks, promises, async/await)
-- Fetch API and AJAX
-- **Project:** Weather app with external API
+- JavaScript syntax, variables, data types
+- Functions, events, DOM manipulation
+- Form validation (client-side)
+- Basic effects and interactivity
+- **Project:** Interactive form and dynamic content
 
-#### Week 4: React Fundamentals
-- Components, props, state
-- Hooks (useState, useEffect, useContext)
-- React Router
-- **Project:** Multi-page React SPA (e.g., blog or e-commerce frontend)
+### **Weeks 5-6: PHP Fundamentals**
 
----
+- PHP syntax, variables, operators
+- Control structures (if, switch, loops)
+- Functions, arrays, superglobals
+- Handling forms with PHP
+- File includes and basic security
+- **Project:** Contact form with PHP processing
 
-### **Phase 2: Backend & Databases (Weeks 5-8)**
+### **Weeks 7-8: MySQL & Database Integration**
 
-#### Week 5: Node.js & Express
-- Node.js runtime fundamentals
-- Express server setup
-- RESTful API design
-- Middleware concepts
-- **Project:** Build a RESTful API for task management
+- MySQL basics, tables, CRUD operations
+- Connecting PHP to MySQL (mysqli/PDO)
+- User authentication basics
+- Displaying database content in HTML
+- **Project:** Guestbook or simple blog with database
 
-#### Week 6: Databases - PostgreSQL
-- Relational database concepts
-- SQL queries (SELECT, JOIN, WHERE, GROUP BY)
-- Database design & normalization
-- Connecting Node.js to PostgreSQL
-- **Project:** Add PostgreSQL backend to task API
+### **Weeks 9-10: Dynamic Web Applications**
 
-#### Week 7: Authentication & Security
-- Password hashing (bcrypt)
-- JWT authentication
-- Session management
-- CORS, HTTPS basics
-- **Project:** User authentication system
+- Sessions and cookies
+- Uploading files and images
+- Building a simple CMS (Content Management System)
+- Integrating PHP, MySQL, and JavaScript
+- **Project:** Mini CMS or user dashboard
 
-#### Week 8: Full-Stack Integration
-- Connecting React frontend to Express backend
-- Environment variables
-- Error handling & validation
-- **Project:** Full-stack CRUD app with auth
+### **Weeks 11-12: Final Project & Deployment**
+
+- Plan and design a dynamic website
+- Build a full-featured PHP/MySQL/JS site
+- Test, debug, and secure your application
+- Deploy to a live server (shared hosting or cloud)
+- **Capstone:** Portfolio-ready dynamic website
 
 ---
 
-### **Phase 3: Advanced Topics & Deployment (Weeks 9-12)**
+## 🛠️ Tech Stack
 
-#### Week 9: Version Control & Collaboration
-- Git advanced (branching, merging, rebasing)
-- GitHub workflows
-- Code reviews and PRs
-- CI/CD basics
-- **Project:** Collaborate on team repo
-
-#### Week 10: Modern Tools & Best Practices
-- TypeScript basics
-- Testing (Jest, React Testing Library)
-- Linting & formatting (ESLint, Prettier)
-- **Project:** Refactor previous project with TypeScript + tests
-
-#### Week 11: Deployment & DevOps
-- Deploying frontend (Vercel/Netlify)
-- Deploying backend (Railway/Render/Heroku)
-- Database hosting (Supabase/Neon)
-- Environment configuration
-- **Project:** Deploy full-stack app live
-
-#### Week 12: Capstone Project & Interview Prep
-- Build portfolio capstone project
-- Code challenges practice (LeetCode easy/medium)
-- Behavioral interview prep
-- Resume & LinkedIn optimization
-- **Capstone:** Original full-stack application
-
----
-
-## 🛠️ Tech Stack (LearningFuze-Aligned)
-
-**Frontend:**
-- HTML5, CSS3 (Flexbox, Grid)
-- JavaScript (ES6+)
-- React.js
-- React Router
-
-**Backend:**
-- Node.js
-- Express.js
-- PostgreSQL
-- JWT authentication
-
-**Tools:**
-- Git & GitHub
-- VS Code
-- Postman (API testing)
-- Chrome DevTools
-
-**Deployment:**
-- Vercel/Netlify (frontend)
-- Railway/Render (backend)
-- Supabase/Neon (database)
+- HTML5, CSS3
+- JavaScript (ES6 basics)
+- PHP 7/8
+- MySQL
+- Apache or Nginx (local dev: XAMPP, MAMP, or Docker)
 
 ---
 
 ## 📋 Skills Checklist
 
-### Frontend
+### HTML & CSS
+
 - [ ] Semantic HTML & accessibility
-- [ ] Responsive CSS (mobile-first)
-- [ ] JavaScript fundamentals
+- [ ] Forms, tables, and layout
+- [ ] Responsive CSS
+
+### JavaScript
+
 - [ ] DOM manipulation & events
-- [ ] Fetch API & async programming
-- [ ] React components & hooks
-- [ ] State management
-- [ ] Client-side routing
+- [ ] Form validation
+- [ ] Basic interactivity
 
-### Backend
-- [ ] Node.js & npm
-- [ ] Express server & middleware
-- [ ] RESTful API design
-- [ ] SQL & PostgreSQL
-- [ ] Database relationships
-- [ ] Authentication & authorization
-- [ ] Error handling
-- [ ] API security basics
+### PHP
 
-### DevOps & Tools
-- [ ] Git version control
-- [ ] GitHub collaboration
-- [ ] Terminal/command line
-- [ ] Debugging techniques
-- [ ] Testing basics
-- [ ] Deployment workflows
-- [ ] Environment variables
+- [ ] Syntax & control structures
+- [ ] Handling forms
+- [ ] Sessions & cookies
+- [ ] File uploads
 
-### Soft Skills
-- [ ] Problem-solving approach
-- [ ] Code documentation
-- [ ] Code reviews
-- [ ] Technical communication
-- [ ] Time management
-- [ ] Self-directed learning
+### MySQL
+
+- [ ] CRUD operations
+- [ ] Database design
+- [ ] PHP/MySQL integration
+
+### Fullstack
+
+- [ ] Dynamic content
+- [ ] Authentication basics
+- [ ] Deploying a PHP/MySQL app
 
 ---
 
 ## 🚀 Projects Portfolio
 
-By the end of this curriculum, you'll have these projects:
-
-1. **Portfolio Website** - Personal landing page
-2. **To-Do List App** - Vanilla JS DOM manipulation
-3. **Weather Dashboard** - API integration
-4. **React SPA** - Multi-page React application
-5. **RESTful API** - Express + PostgreSQL backend
-6. **Full-Stack App** - CRUD with authentication
-7. **Team Collaboration Project** - Git workflow practice
-8. **Capstone Project** - Original full-stack application
+1. Personal homepage (HTML/CSS)
+2. Interactive form (JS validation)
+3. Contact form (PHP processing)
+4. Guestbook/blog (PHP+MySQL)
+5. Mini CMS/user dashboard
+6. Capstone: Dynamic portfolio website
 
 ---
 
 ## 📖 Learning Resources
 
-### Documentation
-- [MDN Web Docs](https://developer.mozilla.org/) - HTML, CSS, JavaScript reference
-- [React Docs](https://react.dev/) - Official React documentation
-- [Node.js Docs](https://nodejs.org/docs/) - Node.js API reference
-- [PostgreSQL Tutorial](https://www.postgresql.org/docs/) - SQL & PostgreSQL
-
-### Practice
-- [freeCodeCamp](https://www.freecodecamp.org/) - Interactive coding challenges
-- [Frontend Mentor](https://www.frontendmentor.io/) - Real-world frontend projects
-- [LeetCode](https://leetcode.com/) - Algorithm practice (Easy/Medium)
-
-### Videos
-- [The Odin Project](https://www.theodinproject.com/) - Fullstack curriculum
-- [Traversy Media](https://www.youtube.com/@TraversyMedia) - Web dev tutorials
-- [Web Dev Simplified](https://www.youtube.com/@WebDevSimplified) - Concept breakdowns
+- [W3Schools PHP Tutorial](https://www.w3schools.com/php/)
+- [PHP Manual](https://www.php.net/manual/en/)
+- [MySQL Tutorial](https://www.mysqltutorial.org/)
+- [Mozilla MDN Web Docs](https://developer.mozilla.org/)
+- [Robin Nixon’s Book Companion Site](https://www.robinixon.com/)
 
 ---
 
 ## 📅 Weekly Time Commitment
 
-- **Lectures/Videos:** 10-15 hours/week
-- **Hands-on Coding:** 20-25 hours/week
-- **Projects:** 10-15 hours/week
-- **Total:** 40-50 hours/week (full-time intensity)
+- **Reading/Video:** 5-8 hours/week
+- **Coding Practice:** 10-15 hours/week
+- **Projects:** 5-10 hours/week
+- **Total:** 20-30 hours/week (flexible)
 
 ---
 
-## 🎓 Internship Readiness Milestones
+## 🤖 Using AI for Learning
 
-- [ ] Week 4: Basic frontend portfolio ready
-- [ ] Week 8: Full-stack app deployed
-- [ ] Week 10: Resume updated with projects
-- [ ] Week 11: LinkedIn profile optimized
-- [ ] Week 12: 3+ portfolio projects live
-- [ ] Week 12: Comfortable with technical interviews
-
----
-
-## 🤖 Using ollama_duo for Learning
-
-Generate lesson content:
-```bash
-python ollama_duo.py -p "Explain React hooks with examples" --show-draft
-```
-
-Get project ideas:
-```bash
-python ollama_duo.py -p "Suggest 3 beginner React projects" --json
-```
-
-Code review:
-```bash
-python ollama_duo.py --file my_app.js --optimize --optimize-json
-```
-
-Debug help:
-```bash
-python ollama_duo.py -p "Debug this error: [paste error]" --coder codellama:latest
-```
+- Ask for code explanations, debugging, or project ideas
+- Example: “Explain how PHP sessions work”
+- Example: “Debug this PHP form handler: [paste code]”
+- Example: “Suggest a project using PHP and MySQL”
 
 ---
 
 ## 📞 Next Steps
 
-1. **Start Week 1:** Open `curriculum/week_01.md`
-2. **Track Progress:** Use `curriculum/PROGRESS.md`
-3. **Generate Custom Content:** Run `python scripts/generate_curriculum.py --help`
-4. **Ask Questions:** Use ollama_duo for explanations
+1. **Start Week 1:** Build your homepage (HTML/CSS)
+2. **Track Progress:** Make a checklist or journal
+3. **Ask Questions:** Use AI or forums for help
+4. **Build Portfolio:** Add each project as you go
 
-Good luck on your journey to becoming a fullstack developer! 🚀
+Good luck on your journey to becoming a dynamic web developer! 🚀

@@ -1,66 +1,123 @@
-# Week 2: JavaScript Basics
+# Week 2: JavaScript Basics (Robin Nixon, Learning PHP, MySQL & JavaScript 5th Edition)
 
-**Theme:** Adding interactivity to web pages  
+**Theme:** Adding Interactivity with JavaScript  
 **Duration:** 5 days  
-**Goal:** Build an interactive to-do list application
+**Goal:** Understand and use JavaScript to add dynamic features to web pages
 
 ---
 
 ## Learning Objectives
-- [ ] Understand JavaScript fundamentals (variables, data types, operators)
-- [ ] Write functions and understand scope
-- [ ] Manipulate the DOM
-- [ ] Handle user events
-- [ ] Store data in localStorage
+
+- [ ] Understand JavaScript syntax and core concepts
+- [ ] Use variables, operators, and control structures
+- [ ] Write and use functions
+- [ ] Manipulate the DOM and handle events
+- [ ] Validate forms with JavaScript
 
 ---
 
-## Daily Breakdown
+## Daily Breakdown (with Nixon Book References)
 
-### Day 1: JavaScript Fundamentals
-**Topics:**
-- Variables (let, const, var)
-- Data types (string, number, boolean, array, object)
-- Operators (arithmetic, comparison, logical)
-- Conditionals (if/else, switch, ternary)
-- Loops (for, while, forEach)
+### Day 1: JavaScript Introduction & Syntax
 
-**Practice:**
-- FizzBuzz challenge
-- Array manipulation exercises
+**Reading:**
 
----
-
-### Day 2: Functions & Scope
-**Topics:**
-- Function declarations vs expressions
-- Arrow functions
-- Parameters and arguments
-- Return values
-- Scope (global, function, block)
-- Closures basics
-
-**Practice:**
-- Build calculator functions
-- Create utility functions
+- Chapter 4: Introduction to JavaScript
+  **Topics:**
+- Embedding JavaScript in HTML
+- Variables, data types, operators
+- Basic input/output (alert, prompt, console.log)
+  **Exercise:**
+- Write a script that greets the user and displays today’s date
 
 ---
 
-### Day 3: DOM Manipulation
-**Topics:**
-- Selecting elements (querySelector, getElementById)
-- Creating and removing elements
-- Modifying element content and attributes
-- Traversing the DOM
-- classList manipulation
+### Day 2: Control Structures & Functions
 
-**Practice:**
-- Build a dynamic UI that adds/removes elements
+**Reading:**
+
+- Chapter 4: Introduction to JavaScript (cont.)
+  **Topics:**
+- Conditionals (if, else, switch)
+- Loops (for, while, do...while)
+- Functions (declaration, parameters, return)
+  **Exercise:**
+- Create a function that checks if a number is even or odd; use a loop to print numbers 1-10
+
+---
+
+### Day 3: Arrays & Objects
+
+**Reading:**
+
+- Chapter 4: Introduction to JavaScript (arrays/objects section)
+  **Topics:**
+- Arrays (creation, access, methods)
+- Objects (properties, methods)
+- Iterating over arrays/objects
+  **Exercise:**
+- Build a list of your favorite books as an array of objects and display them
+
+---
+
+### Day 4: DOM Manipulation & Events
+
+**Reading:**
+
+- Chapter 5: Using JavaScript
+  **Topics:**
+- Selecting and modifying HTML elements
+- Handling events (click, input, submit)
+- Changing styles and content dynamically
+  **Exercise:**
+- Make a button that changes the background color of the page
+
+---
+
+### Day 5: Form Validation & Mini Project
+
+**Reading:**
+
+- Chapter 5: Using JavaScript (forms section)
+  **Topics:**
+- Validating form input with JavaScript
+- Preventing form submission on error
+- Integrating JS with HTML forms
+  **Exercise:**
+- Add validation to your contact form from week 1 (require name/email, check email format)
+
+---
+
+## Resources
+
+- [Robin Nixon’s Book Companion Site](https://www.robinixon.com/)
+- [W3Schools JavaScript Tutorial](https://www.w3schools.com/js/)
+
+---
+
+## Project for the Week
+
+**Enhance your personal homepage** by adding:
+
+- A greeting script
+- A dynamic list (e.g., favorite books)
+- A button to change background color
+- Form validation for your contact form
+
+---
+
+## Tips
+
+- Reference the book’s code examples as you build
+- Test your scripts in different browsers
+- Use browser dev tools for debugging
 
 ---
 
 ### Day 4: Event Handling
+
 **Topics:**
+
 - addEventListener
 - Event types (click, input, submit, keydown)
 - Event object and preventDefault
@@ -68,19 +125,23 @@
 - Form validation
 
 **Practice:**
+
 - Create interactive forms
 - Build click counters and toggles
 
 ---
 
 ### Day 5: localStorage & JSON
+
 **Topics:**
+
 - localStorage API (getItem, setItem, removeItem)
 - JSON.stringify and JSON.parse
 - Data persistence
 - Debugging with console.log
 
 **Practice:**
+
 - Save and load data from localStorage
 
 ---
@@ -91,6 +152,7 @@
 Build a to-do list app with full CRUD functionality and data persistence.
 
 **Requirements:**
+
 - [ ] Add new tasks with input field
 - [ ] Mark tasks as complete (toggle)
 - [ ] Delete tasks
@@ -102,6 +164,7 @@ Build a to-do list app with full CRUD functionality and data persistence.
 - [ ] Responsive design
 
 **Bonus:**
+
 - [ ] Drag and drop to reorder
 - [ ] Due dates for tasks
 - [ ] Priority levels (color-coded)
@@ -114,10 +177,12 @@ Build a to-do list app with full CRUD functionality and data persistence.
 All exercises are in the `exercises/` folder.
 
 **Daily Exercises:**
+
 - `day1.html` & `day1.js` - JavaScript fundamentals (variables, loops, functions)
 - `day3.html` & `day3.js` - DOM manipulation practice
 
 **How to work:**
+
 1. Open the HTML file in your browser
 2. Open browser console (F12) to see output
 3. Write your code in the .js file
@@ -128,6 +193,7 @@ All exercises are in the `exercises/` folder.
    ```
 
 **Alternative review:**
+
 ```bash
 python3 ../../ollama_duo.py --file exercises/day1.js --optimize --optimize-json
 ```
@@ -135,6 +201,7 @@ python3 ../../ollama_duo.py --file exercises/day1.js --optimize --optimize-json
 ---
 
 ## Skills Checklist
+
 - [ ] Variables and data types
 - [ ] Functions and scope
 - [ ] Array methods (push, pop, map, filter)
@@ -147,6 +214,7 @@ python3 ../../ollama_duo.py --file exercises/day1.js --optimize --optimize-json
 ---
 
 ## Resources
+
 - [JavaScript.info](https://javascript.info/)
 - [Eloquent JavaScript Book](https://eloquentjavascript.net/)
 - [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
@@ -154,4 +222,5 @@ python3 ../../ollama_duo.py --file exercises/day1.js --optimize --optimize-json
 ---
 
 ## Next Week Preview
+
 Week 3: Advanced JavaScript - async programming and APIs

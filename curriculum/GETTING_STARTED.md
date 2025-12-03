@@ -1,77 +1,34 @@
 # 👨‍🏫 How to Use This Curriculum
 
-## For Students
+Welcome! This curriculum is inspired by Robin Nixon’s "Learning PHP, MySQL & JavaScript (5th Edition)" and is organized into week-by-week folders. Each week’s README and exercises are mapped to chapters and topics from the book, so you always know what to read and practice.
 
-### Getting Started
-This curriculum is designed like LearningFuze bootcamp - you'll work through exercises each day and get AI code reviews just like having an instructor check your work.
-
----
-
-## 📅 Daily Workflow
-
-### 1. Read the Week Overview
-Start each week by reading the README:
-```bash
-open curriculum/weeks/week_01_html_css/README.md
-```
-
-### 2. Complete Daily Exercises
-Each day has practice files in the `exercises/` folder:
-
-**Example - Week 1, Day 1:**
-```bash
-# Open the exercise
-open curriculum/weeks/week_01_html_css/exercises/day1.html
-
-# Edit in VS Code
-code curriculum/weeks/week_01_html_css/exercises/day1.html
-code curriculum/weeks/week_01_html_css/exercises/day1.css
-```
-
-### 3. Test Your Work
-- Open the HTML file in your browser
-- Make changes in VS Code
-- Refresh browser to see updates
-- Check browser console (F12) for JavaScript errors
-
-### 4. Get AI Code Review (Your "Instructor")
-When you finish an exercise, get it reviewed:
-
-```bash
-cd curriculum/weeks/week_01_html_css
-./review_code.sh exercises/day1.html
-```
-
-**What the AI checks:**
-- ✅ Code correctness
-- ✅ Best practices
-- ✅ Performance issues
-- ✅ Bugs or edge cases
-- ✅ Suggestions for improvement
-
-### 5. Fix Issues & Re-submit
-If the AI finds issues:
-1. Read the feedback
-2. Fix your code
-3. Run review again
-4. Repeat until clean
-
-### 6. Move to Solutions
-Once your code is solid:
-```bash
-cp exercises/day1.html solutions/day1.html
-cp exercises/day1.css solutions/day1.css
-```
-
-### 7. Track Progress
-Mark items complete in your progress tracker:
-```bash
-open curriculum/PROGRESS.md
-```
+You’ll work through hands-on exercises, get instant AI code reviews, and build real projects—just like a modern coding bootcamp, but with a focus on the Nixon stack.
 
 ---
 
-## 📂 Folder Structure
+## 📅 Quick Workflow
+
+1. **Read the Week’s README**
+   - Example: `code curriculum/weeks/week_01_html_css/README.md`
+   - _Where to find book references:_ Each README lists the Nixon chapters/sections for the week’s topics and exercises.
+2. **Do the Daily Exercise**
+   - Example: `code curriculum/weeks/week_01_html_css/exercises/day1.html`
+3. **Test in Browser**
+   - Open your HTML file, refresh to see changes, check the console for errors.
+4. **Get AI Code Review**
+   - Example: `./review_code.sh exercises/day1.html`
+5. **Fix Issues & Repeat**
+   - Read feedback, fix code, re-run review until clean.
+6. **Move to Solutions**
+   - Example: `cp exercises/day1.html solutions/day1.html`
+7. **Track Progress**
+   - Example: `code curriculum/PROGRESS.md`
+
+---
+
+---
+
+## 📂 Folder Structure & Week Mapping
 
 ```
 curriculum/
@@ -80,24 +37,10 @@ curriculum/
 ├── GETTING_STARTED.md          # This file
 │
 ├── weeks/
-│   ├── week_01_html_css/
-│   │   ├── README.md           # Week overview & daily lessons
-│   │   ├── exercises/          # Your practice files
-│   │   │   ├── day1.html
-│   │   │   ├── day1.css
-│   │   │   ├── day3.html
-│   │   │   └── ...
-│   │   ├── solutions/          # Your completed work
-│   │   └── review_code.sh      # Quick review script
-│   │
-│   ├── week_02_js_basics/
-│   │   ├── README.md
-│   │   ├── exercises/
-│   │   │   ├── day1.js
-│   │   │   ├── day1.html
-│   │   │   └── ...
-│   │   ├── solutions/
-│   │   └── review_code.sh
+│   ├── week_01_html_css/         # Nixon Ch. 1-3: HTML & CSS
+│   ├── week_02_js_basics/        # Nixon Ch. 4-5: JavaScript
+│   ├── week_03_php_basics/       # Nixon Ch. 6-8: PHP
+│   ├── week_04_mysql_integration/# Nixon Ch. 9-12: MySQL & PHP
 │   └── ...
 │
 └── projects/
@@ -108,89 +51,101 @@ curriculum/
 
 ---
 
+---
+
 ## 🤖 Using the AI Instructor
 
 ### Quick Review
+
 ```bash
 ./review_code.sh exercises/day1.html
 ```
 
 ### Detailed Review
+
 ```bash
 python3 ../../ollama_duo.py --file exercises/day1.html --optimize --optimize-json
 ```
 
 ### Ask Questions
+
 ```bash
 python3 ollama_duo.py -p "Explain CSS Flexbox with examples" --show-draft
 ```
 
 ### Debug Help
+
 ```bash
 python3 ollama_duo.py -p "Why is my flexbox not centering? [paste your code]"
 ```
 
 ### Project Ideas
+
 ```bash
 python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
 ```
 
 ---
 
-## 📋 Week-by-Week Guide
+---
 
-### Week 1: HTML & CSS
-**Files to complete:**
-- [ ] `exercises/day1.html` & `day1.css` (Resume page)
-- [ ] `exercises/day3.html` & `day3.css` (Flexbox layout)
-- [ ] `exercises/day4.html` & `day4.css` (CSS Grid gallery)
-- [ ] Week project: Portfolio landing page
+## 📋 Week-by-Week Guide (with Book References)
 
-**Daily routine:**
-1. Read day's lesson in README
-2. Complete the exercise file
-3. Get AI review
-4. Fix issues
-5. Move to solutions/
+### Week 1: HTML & CSS (Nixon Ch. 1-3)
 
-### Week 2: JavaScript Basics
-**Files to complete:**
-- [ ] `exercises/day1.js` (JS fundamentals)
-- [ ] `exercises/day3.js` (DOM manipulation)
-- [ ] Week project: To-Do List App
+- [ ] Complete daily exercises in `exercises/`
+- [ ] Project: Personal homepage
+- _Book references in README_
 
-**Daily routine:**
-1. Read day's lesson
-2. Complete exercise
-3. Test in browser console
-4. Get AI review
-5. Fix bugs
-6. Move to solutions/
+### Week 2: JavaScript Basics (Nixon Ch. 4-5)
+
+- [ ] Complete daily exercises in `exercises/`
+- [ ] Project: Interactive form
+- _Book references in README_
+
+### Week 3: PHP Fundamentals (Nixon Ch. 6-8)
+
+- [ ] Complete daily exercises in `exercises/`
+- [ ] Project: Contact form with PHP
+- _Book references in README_
+
+### Week 4: MySQL & Integration (Nixon Ch. 9-12)
+
+- [ ] Complete daily exercises in `exercises/`
+- [ ] Project: Guestbook/blog
+- _Book references in README_
+
+...and so on for each week.
 
 ---
 
 ## 🎯 Tips for Success
 
 ### 1. Code Every Day
+
 - Set aside 4-6 hours minimum
 - Consistency beats cramming
 
 ### 2. Don't Just Copy
+
 - Type out the code yourself
 - Understand every line
 - Experiment and break things
 
 ### 3. Use the AI Instructor
+
 - Review your code before moving on
 - Ask questions when stuck
 - Get explanations for concepts
 
 ### 4. Build Real Projects
+
 - Complete all weekly projects
 - Deploy them live
 - Add to your portfolio
 
 ### 5. Track Your Progress
+
 - Check off skills as you master them
 - Celebrate small wins
 - Review previous work
@@ -200,16 +155,19 @@ python3 ollama_duo.py -p "Suggest a beginner HTML/CSS project"
 ## 🆘 Getting Help
 
 ### Stuck on a concept?
+
 ```bash
 python3 ollama_duo.py -p "Explain [concept] with simple examples"
 ```
 
 ### Code not working?
+
 1. Check browser console for errors
 2. Use console.log() to debug
 3. Ask AI: `python3 ollama_duo.py -p "Debug this error: [error message]"`
 
 ### Need a better explanation?
+
 ```bash
 python3 ollama_duo.py -p "Explain CSS Grid like I'm 10 years old" --show-draft
 ```
@@ -219,18 +177,21 @@ python3 ollama_duo.py -p "Explain CSS Grid like I'm 10 years old" --show-draft
 ## 📊 Measuring Progress
 
 ### Daily
+
 - [ ] Complete day's exercise
 - [ ] Get AI review
 - [ ] Fix all issues
 - [ ] Understand the concepts
 
 ### Weekly
+
 - [ ] All exercises complete
 - [ ] Week project finished
 - [ ] Project deployed (when applicable)
 - [ ] Skills checklist updated
 
 ### Phase (4 weeks)
+
 - [ ] All 4 weeks complete
 - [ ] All projects in portfolio
 - [ ] Can explain concepts clearly
@@ -241,17 +202,20 @@ python3 ollama_duo.py -p "Explain CSS Grid like I'm 10 years old" --show-draft
 ## 🚀 What Success Looks Like
 
 **After Week 1:**
+
 - Build responsive pages from scratch
 - Understand Flexbox and Grid
 - Portfolio site deployed
 
 **After Week 2:**
+
 - Add interactivity with JavaScript
 - Manipulate the DOM
 - Handle user events
 - Working to-do app
 
 **After 12 Weeks:**
+
 - 12+ portfolio projects
 - Full-stack skills
 - Deployed applications
@@ -273,6 +237,7 @@ python3 ollama_duo.py -p "Explain CSS Grid like I'm 10 years old" --show-draft
 ## 🎓 Next Steps
 
 **Week 1, Day 1 Action Plan:**
+
 1. ✅ Read this guide
 2. Open `curriculum/weeks/week_01_html_css/README.md`
 3. Read Day 1 objectives
